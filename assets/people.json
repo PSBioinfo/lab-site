@@ -1,47 +1,20 @@
 [
   {
-    "name": "Dr. First Last",
+    "name": "Dr. Divij Verma",
     "role": "Principal Investigator",
-    "affiliation": "Department, University",
+    "affiliation": "Albert Einstein College of Medicine",
     "photo": "/lab-site/images/placeholder.jpg",
-    "bio": "Short bio about the PI, research focus, and mentoring style.",
+    "bio": "",
     "links": [
       {
         "label": "Google Scholar",
-        "url": "https://scholar.google.com/"
+        "url": "https://scholar.google.com/citations?user=UQeaUugAAAAJ&hl=en"
       },
       {
         "label": "ORCID",
-        "url": "https://orcid.org/"
+        "url": "https://orcid.org/0000-0002-2214-9450"
       },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/"
-      }
     ],
     "status": "current"
-  },
-  {
-    "name": "Researcher Name",
-    "role": "Postdoctoral Fellow",
-    "affiliation": "Department, University",
-    "photo": "/lab-site/images/placeholder.jpg",
-    "bio": "Research interests and a personal line for warmth.",
-    "links": [
-      {
-        "label": "LinkedIn",
-        "url": "https://www.linkedin.com/"
-      }
-    ],
-    "status": "current"
-  },
-  {
-    "name": "Former Member Name",
-    "role": "Research Assistant (2023\u20132024)",
-    "affiliation": "Department, University",
-    "photo": "/lab-site/images/placeholder.jpg",
-    "bio": "Now at New Institution. One line about their work here.",
-    "links": [],
-    "status": "former"
   }
 ]
