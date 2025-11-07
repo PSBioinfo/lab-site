@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us – Divij Verma Lab</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="Open positions and how to join the Divij Verma Lab.">
+</head>
+<body>
+  <!-- Nav (relative links) -->
+  <div class="nav">
+    <div class="inner">
+      <a href="index.html" class="brand">Divij Verma Lab</a>
+      <div class="links">
+        <a href="index.html">Research</a>
+        <a href="lab.html">Lab</a>
+        <a href="publications.html">Publications</a>
+        <a href="mission.html">Mission</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container section">
+    <h1>Join Us</h1>
+    <p class="callout">
+      We welcome motivated colleagues at all levels (students, research assistants, postdocs, and collaborators). 
+      Our lab values inclusion, equity, and mentorship.
+    </p>
+
+    <h2>How to Apply</h2>
+    <ul>
+      <li>Email a single PDF to <a href="mailto:divij.verma@university.edu">divij.verma@university.edu</a>
+        with subject <strong>[Divij Verma Lab Application]</strong>.</li>
+      <li>Include a brief cover letter (1–2 paragraphs), CV, and links to publications or code.</li>
+      <li>State your preferred start date and whether you seek part-time or full-time roles.</li>
+    </ul>
+
+    <h2>What We Work On</h2>
+    <ul>
+      <li>Clonal hematopoiesis & early myeloid disease (MDS/AML)</li>
+      <li>Prostate cancer evolution, microenvironment & therapy response</li>
+      <li>Environmental exposures, aging & inflammation in cancer risk</li>
+      <li>Early detection, biomarkers & risk stratification</li>
+    </ul>
+
+    <h2>Methods in the Lab</h2>
+    <p>
+      Primary human samples · in vivo models · CRISPR/Cas9 editing & lineage tracing · FACS · IHC/IF & microscopy ·
+      library prep (single-cell & spatial) · targeted/bulk RNA-seq · quantitative analysis for validation.
+    </p>
+  </main>
+
+  <div class="footer container">
+    © <span id="year"></span> Divij Verma Lab
+  </div>
+  <script src="assets/script.js"></script>
+</body>
+</html>
