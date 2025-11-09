@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,8 +15,8 @@
   --brand-2:#7c4dff;
 
   /* DARK THEME VARIABLES (only set) */
-  --surface:#0b1220;
-  --ink:#e6e9ef;
+  --surface:#d7dce4;
+  --ink:#4b4b51;
   --muted:#98a2b3;
   --radius:1.25rem;
   --shadow:0 1rem 2.5rem rgba(0,0,0,.35), 0 .5rem 1rem rgba(0,0,0,.25);
@@ -37,16 +37,20 @@ body{color:var(--ink); background:var(--surface)}
     .navbar .nav-link{font-weight:600}
 
 /* Hero (dark-only) */
-    .hero{
-      position:relative; overflow:hidden; padding:8rem 0 6rem; min-height:70vh;
-      background:
-        radial-gradient(1200px 600px at 80% -100%, rgba(124,77,255,.22) 0%, transparent 60%),
-        linear-gradient(135deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.38) 100%),
-        url("img/hero-verma-lab-full.jpg"); /* put your image at img/hero.jpg */
-      background-size: auto, auto, cover;
-      background-position: center, center, center;
-      background-repeat: no-repeat, no-repeat, no-repeat;
-    }
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0 6rem;
+  min-height: 70vh;
+ 
+  /* Only one background image, fully stretched */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.38) 100%),
+              url("img/hero-verma-lab-full.jpg");
+  background-size: 100% auto; /* stretches horizontally */
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+ 
     .blob{
       position:absolute; inset:auto -20% -35% auto; width:55vmax; z-index:0; opacity:.4; pointer-events:none;
       filter:blur(20px);
@@ -88,6 +92,61 @@ body{color:var(--ink); background:var(--surface)}
       .lift{transition:none}
       html,body{scroll-behavior:auto}
     }
+    /* Hero headline + subheadline only */
+.hero h1,
+.hero p.lead {
+  color: #ffffff !important;   /* pick any color you want */
+}
+/* Make hero stats (numbers + labels) white */
+.hero .h2,
+.hero .counter,
+.hero .text-secondary {
+  color: #ffffff !important;
+}
+
+/* Research image strip: smaller and centered */
+.research-gallery{
+  max-width: 300px;      /* wider container, but images themselves will be small */
+  margin: 0 auto;
+}
+
+.research-img{
+  width: 175px;          /* <— hard limit the width */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;        /* center in its column */
+}
+.research-img-exposures{
+  transform: translateY(-10px);  /* move up a little */
+}
+
+/* Base size for all logos */
+.affiliation-logo{
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+/* Make the Einstein logo a bit smaller */
+.affiliation-logo-small{
+  max-height: 70px;   /* tweak this number up/down until it feels right */
+}
+
+/* Publications image strip */
+.pub-gallery{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pub-img{
+  width: 150px;        /* adjust smaller/bigger as you like */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -117,8 +176,9 @@ body{color:var(--ink); background:var(--surface)}
 </nav>
 
 
-  <!-- HERO -->
+   
   <header id="home" class="hero">
+<!-- HERO
     <svg class="blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g transform="translate(300,300)">
         <path d="M150,-162.3C194.2,-108.3,223.8,-54.1,225.8,2C227.8,58.1,202.1,116.2,158,165.4C113.8,214.6,51.9,255,-12.6,266.5C-77.1,278,-154.2,260.7,-205.9,213.8C-257.7,167,-284.1,90.7,-278.4,19C-272.7,-52.8,-234.9,-119.9,-182.1,-174C-129.3,-228.1,-61.6,-269.2,-3.5,-265.1C54.6,-261,109.3,-211.8,150,-162.3Z" fill="url(#g)"></path>
@@ -130,7 +190,7 @@ body{color:var(--ink); background:var(--surface)}
         </linearGradient>
       </defs>
     </svg>
-
+-->
     <div class="container content">
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
@@ -144,37 +204,12 @@ body{color:var(--ink); background:var(--surface)}
             <a href="#research" class="btn btn-outline-primary btn-lg">Explore research</a>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div class="card card-soft p-4 reveal">
-            <h5 class="fw-bold mb-3">Focus Areas</h5>
-            <div class="d-flex align-items-start gap-3 mb-3">
-              <span class="icon-pill"><i class="fa-solid fa-brain text-primary"></i></span>
-              <div><div class="fw-semibold">Prostate Cancer Research</div>
-                <div class="text-secondary">Evolution, microenvironment, therapy response</div></div>
-            </div>
-            <div class="d-flex align-items-start gap-3 mb-3">
-              <span class="icon-pill"><i class="fa-solid fa-dna text-primary"></i></span>
-              <div><div class="fw-semibold">MDS/AML</div>
-                <div class="text-secondary">Clonal hematopoiesis, early myeloid disease</div></div>
-            </div>
-            <div class="d-flex align-items-start gap-3 mb-3">
-              <span class="icon-pill"><i class="fa-solid fa-laptop-code text-primary"></i></span>
-              <div><div class="fw-semibold">Cancer Risk</div>
-                <div class="text-secondary">Environmental exposures, aging, inflammatory networks </div></div>
-            </div>
-            <div class="d-flex align-items-start gap-3">
-              <span class="icon-pill"><i class="fa-solid fa-microscope text-primary"></i></span>
-              <div><div class="fw-semibold">Biomarkers &amp; Risk Stratification</div>
-                <div class="text-secondary"></div></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Stats -->
       <div class="row text-center mt-5 g-4 reveal">
         <div class="col-6 col-lg-3">
-          <div class="h2 fw-bold"><span class="counter" data-target="8">0</span>+</div>
+          <div class="h2 fw-bold"><span class="counter" data-target="15">0</span>+</div>
           <div class="text-secondary">Publications</div>
         </div>
         <div class="col-6 col-lg-3">
@@ -199,9 +234,25 @@ body{color:var(--ink); background:var(--surface)}
       <div class="row mb-4">
         <div class="col-lg-8">
           <h2 class="fw-bold mb-2">Our Research</h2>
-          <p class="text-secondary mb-0">
-            We study how exposures and aging reshape blood and prostate cancers.
           </p>
+        </div>
+      </div>
+
+      <!-- Static Image Gallery -->
+      <div class="row mt-5">
+        <div class="col">
+          <div class="row g-3 justify-content-center">
+            <div class="col-12 col-md-4">
+              <img src="img/inflammatory.jpeg" class="rounded research-img" ...>
+            </div>
+            <div class="col-12 col-md-4">
+              <img src="img/diseases.jpeg" class="img-fluid rounded" alt="Disease evolution">
+            </div>
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/exposures.jpeg" class="rounded research-img research-img-exposures" alt="Environmental exposures">
+        </div>
+
+          </div>
         </div>
       </div>
 
@@ -244,34 +295,6 @@ body{color:var(--ink); background:var(--surface)}
         </div>
       </div>
 
-      <!-- Carousel Gallery 
-      <div class="row mt-5">
-        <div class="col">
-          <div id="labCarousel" class="carousel slide reveal" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="img/lab-01.jpg" class="d-block w-100" alt="Microscopy workstation">
-              </div>
-              <div class="carousel-item">
-                <img src="img/lab-02.jpg" class="d-block w-100" alt="Neural imaging">
-              </div>
-              <div class="carousel-item">
-                <img src="img/lab-03.jpg" class="d-block w-100" alt="Team collaboration">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#labCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#labCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
--->
 
   <!-- PEOPLE -->
   <section id="people" class="section-pad bg-body-tertiary">
@@ -279,7 +302,6 @@ body{color:var(--ink); background:var(--surface)}
       <div class="row mb-4">
         <div class="col-lg-8">
           <h2 class="fw-bold mb-2">Our Team</h2>
-          <p class="text-secondary mb-0">Scientists, trainees, and staff pushing boundaries together.</p>
         </div>
       </div>
 
@@ -287,25 +309,26 @@ body{color:var(--ink); background:var(--surface)}
         <!-- Replace images/text with your real members -->
         <div class="col-sm-6 col-lg-3">
           <div class="card card-soft h-100 lift reveal">
-            <img src="img/divij.jpeg" class="card-img-top" alt="Dr. Divij Verma">
+            <img src="img/dv.jpeg" class="card-img-top" alt="Dr. Divij Verma">
             <div class="card-body">
               <div class="small text-secondary mb-1">PI</div>
-              <h6 class="fw-semibold mb-1">Dr. Divij Verma</h6>
+              <h6 class="fw-semibold mb-1">Dr. Divij Verma, Ph.D.</h6>
               <p class="text-secondary mb-0"> Principal Investigator </p>
             </div>
           </div>
         </div>
 
-<!--        <div class="col-sm-6 col-lg-3">-->
-<!--          <div class="card card-soft h-100 lift reveal">-->
-<!--            <img src="img/team-02.jpg" class="card-img-top" alt="Aditi Sharma">-->
-<!--            <div class="card-body">-->
-<!--              <div class="small text-secondary mb-1">Research Associate</div>-->
-<!--              <h6 class="fw-semibold mb-1">Aditi Sharma</h6>-->
-<!--              <p class="text-secondary mb-0">Protein-protein interactions in neural pathways.</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="col-sm-6 col-lg-3">
+          <div class="card card-soft h-100 lift reveal plabani-small">
+          <img src="img/fuser.jpeg" class="card-img-top" alt="Plabani Sahu">
+         <div class="card-body">
+            <div class="small text-secondary mb-1"></div>
+            <h6 class="fw-semibold mb-1">Plabani Sahu, M.S.</h6>
+           <p class="text-secondary mb-0">Visiting Scientist</p>
+         </div>
+       </div>
+</div>
+
 
 <!--        <div class="col-sm-6 col-lg-3">-->
 <!--          <div class="card card-soft h-100 lift reveal">-->
@@ -356,11 +379,11 @@ body{color:var(--ink); background:var(--surface)}
   </section>
 
   <!-- PUBLICATIONS -->
-  <section id="publications" class="section-pad">
+<section id="publications" class="section-pad">
     <div class="container">
       <div class="row align-items-end g-3 mb-3">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-2">Publications</h2>
+          <h2 class="fw-bold mb-2">Publications &amp; Grants</h2>
           <p class="text-secondary mb-0">Filter by year or search by keyword.</p>
         </div>
         <div class="col-lg-4">
@@ -377,31 +400,187 @@ body{color:var(--ink); background:var(--surface)}
           <button class="btn btn-outline-primary btn-sm" data-year="2025">2025</button>
           <button class="btn btn-outline-primary btn-sm" data-year="2024">2024</button>
           <button class="btn btn-outline-primary btn-sm" data-year="2023">2023</button>
+          <button class="btn btn-outline-primary btn-sm" data-year="2022">2022</button>
+          <button class="btn btn-outline-primary btn-sm" data-year="2021">2021</button>
+          <button class="btn btn-outline-primary btn-sm" data-year="2020">2020</button>
+          <button class="btn btn-outline-primary btn-sm" data-year="2019">2019</button>
         </div>
       </div>
 
-      <ul id="pubList" class="list-group list-group-flush card-soft reveal">
-       <li class="list-group-item pub-item" data-year="2025">
-    Verma D, Zeig-Owens R, Goldfarb DG, Kravets L, Pradhan K, Rockwell B, Sahu S, Kelly S, Giricz O, Jasra S, Zou Y, Prophete C, Torres LS, Aluri S, Chakraborty S, Kumari R, Gordon-Mitchell S, Wang J, Silver AJ, South TM, Olmstead SD, Hall CB, Sidoli S, Bender R, Landgren O, Greenberger LM, Wickrema A, Madireddy A, Shastri A, Pietras EM, LaFave LM, Nolan A, Cohen MD, Savona MR, Steidl U, Prezant DJ, Verma A.
-     <em>Elevated clonal hematopoiesis in 9/11 first responders has distinct age-related patterns and relies on IL1RAP for clonal expansion.</em>
-     <strong>Cancer Discov.</strong> 2025 Oct 1. doi:
-     <a href="https://doi.org/10.1158/2159-8290.CD-24-1590" target="_blank" rel="noopener" class="text-decoration-none">10.1158/2159-8290.CD-24-1590</a>.
-    PMID:
-     <a href="https://pubmed.ncbi.nlm.nih.gov/41031953/" target="_blank" rel="noopener" class="text-decoration-none">41031953</a>.
-    </li>
 
-     <li class="list-group-item pub-item" data-year="2025">
-    Verma T, Sahu S, Pradhan K, Aggarwal R, Gordon-Mitchell S, Jasra S, Dehghani SS, Zhang H, Spodek M, Mantzaris I, Konopleva M, Goldfinger M, Verma A, Hosgood D, Verma D, Shastri A, Zou Y.
+<ul id="pubList" class="list-group list-group-flush card-soft reveal">
+  <!-- 2025 -->
+  <li class="list-group-item pub-item" data-year="2025">
+    <em>Elevated clonal hematopoiesis in 9/11 first responders has distinct age-related patterns and relies on IL1RAP for clonal expansion.</em>
+    <strong> Cancer Discov.</strong> 2025 Oct 1.
+    doi:
+    <a href="https://doi.org/10.1158/2159-8290.CD-24-1590" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1158/2159-8290.CD-24-1590
+    </a>.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/41031953/" target="_blank" rel="noopener" class="text-decoration-none">
+      41031953
+    </a>.
+  </li>
+
+  <li class="list-group-item pub-item" data-year="2025">
     <em>Cigarette smoking is associated with worse prognosis in myelodysplastic syndromes and hematopoietic alterations in murine models.</em>
-    <strong>Leuk Lymphoma.</strong> 2025 Oct;66(10):1964-1968. doi:
-    <a href="https://doi.org/10.1080/10428194.2025.2513675" target="_blank" rel="noopener" class="text-decoration-none">10.1080/10428194.2025.2513675</a>.
-    Epub 2025 Jun 9. PMID:
-    <a href="https://pubmed.ncbi.nlm.nih.gov/40488778/" target="_blank" rel="noopener" class="text-decoration-none">40488778</a>.
+    <strong> Leuk Lymphoma.</strong> 2025 Oct;66(10):1964–1968.
+    doi:
+    <a href="https://doi.org/10.1080/10428194.2025.2513675" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1080/10428194.2025.2513675
+    </a>.
+    Epub 2025 Jun 9.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/40488778/" target="_blank" rel="noopener" class="text-decoration-none">
+      40488778
+    </a>.
+  </li>
+
+  <!-- 2024 -->
+  <li class="list-group-item pub-item" data-year="2024">
+    <em>Glutaminase inhibition in combination with azacytidine in myelodysplastic syndromes: a phase 1b/2 clinical trial and correlative analyses.</em>
+    <strong> Nat Cancer.</strong> 2024 Oct;5(10):1515–1533.
+    doi:
+    <a href="https://doi.org/10.1038/s43018-024-00811-3" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1038/s43018-024-00811-3
+    </a>.
+    Epub 2024 Sep 19.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/39300320/" target="_blank" rel="noopener" class="text-decoration-none">
+      39300320
+    </a>.
+  </li>
+
+  <!-- 2023 -->
+  <li class="list-group-item pub-item" data-year="2023">
+    <em>Dietary iron restriction protects against vaso-occlusion and organ damage in murine sickle cell disease.</em>
+    <strong> Blood.</strong> 2023 Jan 12;141(2):194–199.
+    doi:
+    <a href="https://doi.org/10.1182/blood.2022016218" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1182/blood.2022016218
+    </a>.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/36315910/" target="_blank" rel="noopener" class="text-decoration-none">
+      36315910
+    </a>.
+  </li>
+
+  <!-- 2021 -->
+  <li class="list-group-item pub-item" data-year="2021">
+    <em>Germline variants drive myelodysplastic syndrome in young adults.</em>
+    <strong> Leukemia.</strong> 2021 Aug;35(8):2439–2444.
+    doi:
+    <a href="https://doi.org/10.1038/s41375-021-01137-0" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1038/s41375-021-01137-0
+    </a>.
+    Epub 2021 Jan 28.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/33510405/" target="_blank" rel="noopener" class="text-decoration-none">
+      33510405
+    </a>.
+  </li>
+
+  <li class="list-group-item pub-item" data-year="2021">
+    <em>Future directions in preclinical and translational cancer neuroscience research.</em>
+    <strong> Nat Cancer.</strong> 2021 Nov;1:1027–1031.
+    doi:
+    <a href="https://doi.org/10.1038/s43018-020-00146-9" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1038/s43018-020-00146-9
+    </a>.
+    Epub 2020 Nov 17.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/34327335/" target="_blank" rel="noopener" class="text-decoration-none">
+      34327335
+    </a>.
+  </li>
+
+  <!-- 2020 -->
+  <li class="list-group-item pub-item" data-year="2020">
+    <em>Bone marrow niche-derived extracellular matrix-degrading enzymes influence the progression of B-cell acute lymphoblastic leukemia.</em>
+    <strong> Leukemia.</strong> 2020 Jun;34(6):1540–1552.
+    doi:
+    <a href="https://doi.org/10.1038/s41375-019-0674-7" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1038/s41375-019-0674-7
+    </a>.
+    Epub 2020 Jan 9.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/31919471/" target="_blank" rel="noopener" class="text-decoration-none">
+      31919471
+    </a>.
+  </li>
+
+  <li class="list-group-item pub-item" data-year="2020">
+    <em>Clinically Actionable Strategies for Studying Neural Influences in Cancer.</em>
+    <strong> Cancer Cell.</strong> 2020 Jul 13;38(1):11–14.
+    doi:
+    <a href="https://doi.org/10.1016/j.ccell.2020.05.023" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1016/j.ccell.2020.05.023
+    </a>.
+    Epub 2020 Jun 11.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/32531270/" target="_blank" rel="noopener" class="text-decoration-none">
+      32531270
+    </a>.
+  </li>
+
+  <!-- 2019 -->
+  <li class="list-group-item pub-item" data-year="2019">
+    <em>Vitamin K antagonism impairs the bone marrow microenvironment and hematopoiesis.</em>
+    <strong> Blood.</strong> 2019 Jul 18;134(3):227–238.
+    doi:
+    <a href="https://doi.org/10.1182/blood.2018874214" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1182/blood.2018874214
+    </a>.
+    Epub 2019 Apr 19.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/31003999/" target="_blank" rel="noopener" class="text-decoration-none">
+      31003999
+    </a>.
+  </li>
+
+  <li class="list-group-item pub-item" data-year="2019">
+    <em>The transcriptional regulator FUBP1 influences disease outcome in murine and human myeloid leukemia.</em>
+    <strong> Leukemia.</strong> 2019 Jul;33(7):1700–1712.
+    doi:
+    <a href="https://doi.org/10.1038/s41375-018-0358-8" target="_blank" rel="noopener" class="text-decoration-none">
+      10.1038/s41375-018-0358-8
+    </a>.
+    Epub 2019 Jan 11.
+    PMID:
+    <a href="https://pubmed.ncbi.nlm.nih.gov/30635626/" target="_blank" rel="noopener" class="text-decoration-none">
+      30635626
+    </a>.
   </li>
 </ul>
 
+
+      <!-- Static images under publications -->
+      <div class="row mt-4">
+        <div class="col">
+          <div class="row g-3 justify-content-center pub-gallery">
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/cdc.jpeg" class="rounded pub-img" alt="Publication figure 1">
+            </div>
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/dresner.jpeg" class="rounded pub-img" alt="Publication figure 2">
+            </div>
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/kidney.jpeg" class="rounded pub-img" alt="Publication figure 3">
+            </div>
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/niosh.jpeg" class="rounded pub-img" alt="Publication figure 4">
+            </div>
+             <div class="col-12 col-md-4 text-center">
+              <img src="img/award.jpeg" class="rounded pub-img" alt="Publication figure 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
+
 
   <!-- MISSION -->
   <section id="mission" class="section-pad bg-body-tertiary">
@@ -477,15 +656,54 @@ body{color:var(--ink); background:var(--surface)}
           <div class="card card-soft p-4 h-100 reveal">
             <h5 class="fw-bold mb-3">Get in touch</h5>
             <ul class="list-unstyled">
-              <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i>Email: <a href="mailto:divijvermalab@iitd.ac.in">divij.verma@einsteinmed.edu</a></li>
+              <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i><a href="mailto:divijvermalab@iitd.ac.in">divij.verma@einsteinmed.edu</a></li>
               <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Albert Einstein College of Medicine</li>
               <li class="mb-2"><i class="fa-brands fa-x-twitter me-2 text-primary"></i><a href="https://x.com/Divijv" target="_blank" rel="noopener">@DivijVermaLab</a></li>
-              <li class="mb-2"><i class="fa-solid fa-globe me-2 text-primary"></i><a href="https://divij.verma@einsteinmed.edu" target="_blank" rel="noopener">divij.verma@einsteinmed.edu</a></li>
               <li><i class="fa-solid fa-phone me-2 text-primary"></i><a href="tel:+17184302000">(718)-430-2000</a></li>
             </ul>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO CAROUSEL (Affiliations) -->
+  <section id="affiliations" class="section-pad">
+    <div class="container">
+      <h2 class="fw-bold mb-4 text-center">Affiliations</h2>
+
+      <div id="logoCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+
+                <div id="logoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner text-center">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <img src="img/monte.jpeg" class="affiliation-logo" alt="Affiliation 1">
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <img src="img/elogo.jpeg" class="affiliation-logo affiliation-logo-small" alt="Affiliation 2">
+          </div>
+
+        
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <img src="img/nyfd.jpeg" class="affiliation-logo" alt="Affiliation 3">
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#logoCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#logoCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   </section>
@@ -502,7 +720,7 @@ body{color:var(--ink); background:var(--surface)}
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -574,8 +792,6 @@ body{color:var(--ink); background:var(--surface)}
     });
     pubSearch.addEventListener('input', applyPubFilters);
   </script>
+
 </body>
 </html>
-
-
-
