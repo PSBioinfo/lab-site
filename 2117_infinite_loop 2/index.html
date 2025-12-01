@@ -866,70 +866,69 @@
 
         <div class="card card-soft p-4 h-100 reveal">
           <h5 class="fw-bold mb-3">Send us a message</h5>
-          <!-- Contact form -->
-          <form name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field">
-      
-      <!-- Required for Netlify to recognize the form -->
-      <input type="hidden" name="form-name" value="contact">
-    
-      <!-- Honeypot field (hidden from humans, used to catch bots) -->
-      <p class="d-none">
-        <label>Don’t fill this out if you’re human:
-          <input name="bot-field">
-        </label>
-      </p>
-    
-      <div class="row g-3">
-        <div class="col-sm-6">
-          <label for="contactName" class="form-label small text-muted">Name</label>
-          <input type="text"
-                 class="form-control"
-                 id="contactName"
-                 name="name"
-                 placeholder="Your name"
-                 required>
-        </div>
-    
-        <div class="col-sm-6">
-          <label for="contactEmail" class="form-label small text-muted">Email</label>
-          <input type="email"
-                 class="form-control"
-                 id="contactEmail"
-                 name="email"
-                 placeholder="you@example.com"
-                 required>
-        </div>
-    
-        <div class="col-12">
-          <label for="contactSubject" class="form-label small text-muted">Subject</label>
-          <input type="text"
-                 class="form-control"
-                 id="contactSubject"
-                 name="subject"
-                 placeholder="Subject"
-                 required>
-        </div>
-    
-        <div class="col-12">
-          <label for="contactMessage" class="form-label small text-muted">Message</label>
-          <textarea class="form-control"
-                    id="contactMessage"
-                    name="message"
-                    rows="4"
-                    placeholder="Tell us a bit about your inquiry…"
-                    required></textarea>
-        </div>
-    
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary mt-1">
-            <i class="fa-solid fa-paper-plane me-1"></i> Send
-          </button>
-        </div>
-      </div>
-    </form>
+<form name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thanks.html">
+  <!-- Netlify form identification -->
+  <input type="hidden" name="form-name" value="contact">
+
+  <!-- Honeypot field (hidden from humans) -->
+  <p class="d-none">
+    <label>Don’t fill this out if you’re human:
+      <input name="bot-field">
+    </label>
+  </p>
+
+  <div class="row g-3">
+    <div class="col-sm-6">
+      <label for="contactName" class="form-label small text-muted">Name</label>
+      <input type="text"
+             class="form-control"
+             id="contactName"
+             name="name"
+             placeholder="Your name"
+             required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="contactEmail" class="form-label small text-muted">Email</label>
+      <input type="email"
+             class="form-control"
+             id="contactEmail"
+             name="email"
+             placeholder="you@example.com"
+             required>
+    </div>
+
+    <div class="col-12">
+      <label for="contactSubject" class="form-label small text-muted">Subject</label>
+      <input type="text"
+             class="form-control"
+             id="contactSubject"
+             name="subject"
+             placeholder="Subject"
+             required>
+    </div>
+
+    <div class="col-12">
+      <label for="contactMessage" class="form-label small text-muted">Message</label>
+      <textarea class="form-control"
+                id="contactMessage"
+                name="message"
+                rows="4"
+                placeholder="Tell us a bit about your inquiry…"
+                required></textarea>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary mt-1">
+        <i class="fa-solid fa-paper-plane me-1"></i> Send
+      </button>
+    </div>
+  </div>
+</form>
     
           <!-- /Contact form -->
         </div>
@@ -954,7 +953,7 @@
                  alt="Montefiore Einstein Cancer Center">
           </div>
 
-          <!-- Bottom: Einstein + FDNY, slightly bigger and centered -->
+          <!-- Bottom: Einstein + FDNY-->
           <div class="d-flex justify-content-center gap-4 flex-wrap">
             <img src="img/elogo.jpeg"
                  class="affiliation-logo-sub"
@@ -1033,7 +1032,7 @@
     });
   };
 
-  // Only attach listeners if the controls exist on this page
+  // Only attach listeners if controls exist on this page
   if (pubButtons.length && pubItems.length) {
     pubButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1054,6 +1053,7 @@
 
 </body>
 </html>
+
 
 
 
