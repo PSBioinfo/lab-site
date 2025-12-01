@@ -297,15 +297,49 @@
   margin:0 auto;
 }
 
-/* Journal covers – small and not overlapping */
+/* Journal covers – equal visual size */
+.journal-logo-box{
+  width: 300px;          /* same box width for all */
+  height: 300px;         /* same box height for all */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .journal-logo{
-  max-height:300px;    /* smaller covers */
-  max-width: 100%;     /* never overflow the column */
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain;
-  display: block;      /* one per line inside its column */
-  margin: 0 auto;      /* center in the column */
+  object-fit: contain;   /* no cropping */
+}
+
+/* Optional: shrink the boxes a bit on small screens */
+@media (max-width: 768px){
+  .journal-logo-box{
+    width: 180px;
+    height: 180px;
+  }
+}
+
+
+
+/* Right-side news image */
+.news-side-img {
+  max-width: 260px;   /* adjust to taste */
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Card that holds the image: keep it compact & centered */
+.news-side-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
 }
 
 
@@ -330,9 +364,8 @@
       <div id="navLinks" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="#people">Lab</a></li>
+          <li class="nav-item"><a class="nav-link" href="#people">Team Members</a></li>
           <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -469,18 +502,20 @@
 <!-- NEWS -->
 <section id="news" class="section-pad bg-body-tertiary">
   <div class="container">
+    <!-- Heading OUTSIDE the box -->
     <div class="section-heading mb-3">
       <span class="icon-circle"><i class="fa-solid fa-newspaper"></i></span>
       <div>
-        <h2 class="fw-bold mb-0">News</h2>
+        <h2 class="fw-bold mb-0">Recent News</h2>
         <p class="text-muted mb-0 small">Recent highlights and media coverage</p>
       </div>
     </div>
 
-    <div class="row g-4">
-      <div class="col-lg-8 col-xl-7">
+    <div class="row g-4 align-items-stretch">
+      <!-- LEFT: news links -->
+      <div class="col-lg-7 col-xl-7">
         <div class="card card-soft lift p-4 reveal h-100">
-          <h5 class="fw-bold mb-2">Recent News</h5>
+          <!-- (no heading here anymore) -->
           <ul class="list-unstyled mb-0 small">
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
@@ -489,7 +524,6 @@
                 Montefiore Einstein: Preventing harmful consequences of environmental pollution exposure
               </a>
             </li>
-
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
               <a href="https://ecancer.org/en/news/25794-ash-2024-study-finds-genetic-changes-elevated-leukaemia-risk-in-ground-zero-first-responders"
@@ -497,7 +531,6 @@
                 ecancer: Genetic changes and elevated leukaemia risk in 9/11 first responders
               </a>
             </li>
-
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
               <a href="https://aacrjournals.org/cdnews/news/1934/9-11-First-Responders-Have-Twofold-Increase-in"
@@ -505,7 +538,6 @@
                 AACR Cancer Discovery News: 9/11 first responders have twofold increase in clonal hematopoiesis
               </a>
             </li>
-
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
               <a href="https://www.bloodcancerstoday.com/post/world-trade-center-dust-tied-to-genetic-mutations-behind-blood-cancers"
@@ -513,7 +545,6 @@
                 Blood Cancers Today: WTC dust tied to mutations behind blood cancers
               </a>
             </li>
-
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
               <a href="https://montefioreeinstein.org/news/2024/09/24/glutamine-starvation-leads-clinical-responses-blood-cancers"
@@ -524,10 +555,21 @@
           </ul>
         </div>
       </div>
-    </div>
 
+      <!-- RIGHT: centered, smaller image -->
+      <div class="col-lg-5 col-xl-5 d-flex">
+        <div class="card card-soft lift reveal w-100 news-side-card">
+          <img
+            src="img/news.png"
+            alt="Oncology Times cover"
+            class="news-side-img"
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
 
 <!-- PEOPLE -->
 <section id="people" class="section-pad bg-body-tertiary">
@@ -607,25 +649,32 @@
         View Publications Archive
       </a>
     </div>
-    <!-- Journal covers / logos strip -->
-    <div class="row g-3 justify-content-center mt-2">
-      <div class="col-4 col-sm-3 col-md-2 col-lg-2 text-center">
-        <img src="img/911.png"
-             alt="Cancer Discovery"
-             class="journal-logo">
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-lg-2 text-center">
-        <img src="img/nature.png"
-             alt="Nature Cancer"
-             class="journal-logo">
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 col-lg-2 text-center">
-        <img src="img/blood.png"
-             alt="Blood"
-             class="journal-logo">
-      </div>
-    </div>    
+ <!-- Journal covers / logos strip -->
+<div class="row g-3 justify-content-center mt-2">
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/911.png"
+           alt="Cancer Discovery"
+           class="journal-logo">
+    </div>
   </div>
+
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/nature.png"
+           alt="Nature Cancer"
+           class="journal-logo">
+    </div>
+  </div>
+
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/blood.png"
+           alt="Blood"
+           class="journal-logo">
+    </div>
+  </div>
+</div>
 </section>
 
 <!-- Grants / Funding logos -->
@@ -942,3 +991,4 @@
 
 </body>
 </html>
+
