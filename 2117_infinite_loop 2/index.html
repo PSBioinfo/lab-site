@@ -98,9 +98,6 @@
   }
 }
 
-
-
-
     .hero-glass{
       background:rgba(15,23,42,.78);
       border-radius:1.5rem;
@@ -216,8 +213,6 @@
   padding: 8px;                              /* small inner padding */
 }
 
-
-
     .pub-gallery{
       max-width: 1100px;       /* a bit wider row */
       margin: 1.5rem auto 0;   /* some space above, centered */
@@ -238,8 +233,6 @@
       background: transparent;
       padding: 0;
     }
-
-
 
     #pubList{
       border-radius:var(--radius);
@@ -856,91 +849,84 @@
     <div class="row g-4 align-items-stretch">
       <!-- Contact column -->
       <div class="col-md-6">
-        <!-- Contact heading above box -->
+        <!-- Contact heading -->
         <div class="section-heading mb-2">
           <span class="icon-circle"><i class="fa-solid fa-envelope-open-text"></i></span>
           <div>
             <h2 class="fw-bold mb-0">Contact</h2>
-            <p class="text-muted mb-0 small">
-              We’d love to collaborate and hear from prospective trainees.
-            </p>
+            <p class="text-muted mb-0 small">We’d love to collaborate and hear from prospective trainees.</p>
           </div>
         </div>
 
-        <div class="card card-soft p-4 h-100 reveal">
+        <div class="card card-soft p-4 h-100">
           <h5 class="fw-bold mb-3">Send us a message</h5>
 
-          <!-- Contact form -->
           <form name="contact"
                 method="POST"
                 data-netlify="true"
-                netlify-honeypot="bot-field"
-                action="/thanks.html">
+                netlify-honeypot="bot-field">
 
-<!-- Netlify form identification -->
-<input type="hidden" name="form-name" value="contact">
+            <!-- Netlify form identification -->
+            <input type="hidden" name="form-name" value="contact">
 
-<!-- Honeypot (hidden from humans) -->
-<div style="position:absolute; left:-9999px; opacity:0;">
-  <label>
-    Don’t fill this out if you’re human:
-    <input name="bot-field">
-  </label>
-</div>
-
-<div class="mb-3">
-  <label for="contactName" class="form-label small text-muted">Name</label>
-  <input type="text"
-         class="form-control"
-         id="contactName"
-         name="name"
-         placeholder="Your name"
-         required>
-</div>
-
-<div class="mb-3">
-  <label for="contactEmail" class="form-label small text-muted">Email</label>
-  <input type="email"
-         class="form-control"
-         id="contactEmail"
-         name="email"
-         placeholder="you@example.com"
-         required>
-</div>
-
-<div class="mb-3">
-  <label for="contactSubject" class="form-label small text-muted">Subject</label>
-  <input type="text"
-         class="form-control"
-         id="contactSubject"
-         name="subject"
-         placeholder="Subject"
-         required>
-</div>
-
-<div class="mb-3">
-  <label for="contactMessage" class="form-label small text-muted">Message</label>
-  <textarea class="form-control"
-            id="contactMessage"
-            name="message"
-            rows="4"
-            placeholder="Tell us a bit about your inquiry…"
-            required></textarea>
-</div>
-
-<button type="submit" class="btn btn-primary mt-1">
-  <i class="fa-solid fa-paper-plane me-1"></i> Send
-</button>
-              </div>
+            <!-- Honeypot -->
+            <div style="position:absolute; left:-9999px; opacity:0;">
+              <label>
+                Don’t fill this out if you’re human:
+                <input name="bot-field">
+              </label>
             </div>
+
+            <div class="mb-3">
+              <label for="contactName" class="form-label small text-muted">Name</label>
+              <input type="text"
+                     class="form-control"
+                     id="contactName"
+                     name="name"
+                     placeholder="Your name"
+                     required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label small text-muted">Email</label>
+              <input type="email"
+                     class="form-control"
+                     id="contactEmail"
+                     name="email"
+                     placeholder="you@example.com"
+                     required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactSubject" class="form-label small text-muted">Subject</label>
+              <input type="text"
+                     class="form-control"
+                     id="contactSubject"
+                     name="subject"
+                     placeholder="Subject"
+                     required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label small text-muted">Message</label>
+              <textarea class="form-control"
+                        id="contactMessage"
+                        name="message"
+                        rows="4"
+                        placeholder="Tell us a bit about your inquiry…"
+                        required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-1">
+              <i class="fa-solid fa-paper-plane me-1"></i> Send
+            </button>
           </form>
-          <!-- /Contact form -->
         </div>
       </div>
 
       <!-- Affiliations column -->
       <div class="col-md-6">
-        <!-- Affiliations heading above box -->
+        <!-- Affiliations heading -->
         <div class="section-heading mb-2">
           <span class="icon-circle"><i class="fa-solid fa-building-columns"></i></span>
           <div>
@@ -949,22 +935,22 @@
           </div>
         </div>
 
-        <div class="card card-soft p-4 h-100 reveal">
+        <div class="card card-soft p-4 h-100">
           <!-- Top: Montefiore -->
           <div class="text-center mb-4">
             <img src="img/monte.jpeg"
-                class="affiliation-logo-main"
-                alt="Montefiore Einstein Cancer Center">
+                 class="affiliation-logo-main"
+                 alt="Montefiore Einstein Cancer Center">
           </div>
 
-          <!-- Bottom: Einstein + FDNY, slightly bigger and centered -->
+          <!-- Bottom: Einstein + FDNY -->
           <div class="d-flex justify-content-center gap-4 flex-wrap">
             <img src="img/elogo.jpeg"
-                class="affiliation-logo-sub"
-                alt="Einstein">
+                 class="affiliation-logo-sub"
+                 alt="Einstein">
             <img src="img/nyfd.jpeg"
-                class="affiliation-logo-sub"
-                alt="FDNY">
+                 class="affiliation-logo-sub"
+                 alt="FDNY">
           </div>
         </div>
       </div>
@@ -1060,6 +1046,7 @@
 
 </body>
 </html>
+
 
 
 
