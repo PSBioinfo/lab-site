@@ -10,44 +10,51 @@
 
   <style>
     :root{
-      --brand:#0a6cff;
-      --brand-2:#7c4dff;
-      --surface:#f5f6fb;
-      --ink:#22242f;
-      --muted:#98a2b3;
-      --radius:1.25rem;
-      --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
-    }
+  --brand:#0a6cff;
+  --brand-2:#7c4dff;
+  --surface:#ffffff;
+  --ink:#22242f;
+  --muted:#98a2b3;
+  --radius:1.25rem;
+  --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
+}
 
-    html,body{scroll-behavior:smooth}
-    body{
-      color:var(--ink);
-      background: radial-gradient(circle at top left,#e0ebff 0,#f5f6fb 40%,#f9fafb 100%);
-    }
+/* Smooth scrolling */
+html,body{scroll-behavior:smooth}
 
-    /* Top progress bar */
-    #scrollbar{
-      position:fixed; inset:0 0 auto 0; height:4px; z-index:1080;
-      background:linear-gradient(90deg,var(--brand),var(--brand-2));
-      transform-origin:0 50%; transform:scaleX(0);
-    }
+/* GLOBAL BACKGROUND — matches Verma Lab logo */
+body{
+  color:var(--ink);
+  background-color:#f5f1eb !important;   /* main new background */
+}
 
-    /* Navbar */
-    .navbar{
-      backdrop-filter:saturate(1.4) blur(16px);
-      background:rgba(245,246,251,.9);
-      box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
-    }
-    .navbar-brand{
-      font-weight:700;
-      letter-spacing:.02em;
-    }
-    .navbar-nav .nav-link{
-      font-weight:500;
-      padding-inline:.9rem;
-    }
+/* Top progress bar */
+#scrollbar{
+  position:fixed; inset:0 0 auto 0; height:4px; z-index:1080;
+  background:linear-gradient(90deg,var(--brand),var(--brand-2));
+  transform-origin:0 50%; transform:scaleX(0);
+}
 
-/* HERO */
+/* NAVBAR — now blends with new warm background */
+.navbar{
+  backdrop-filter:saturate(1.4) blur(16px);
+  background:rgba(245,241,235,0.85); /* warm background w/ translucency */
+  box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
+}
+
+.navbar-brand{
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+.navbar-nav .nav-link{
+  font-weight:500;
+  padding-inline:.9rem;
+}
+
+/* HERO (unchanged — still dark & dramatic)
+   If you want a light hero to match background, I can generate that too.
+*/
 .hero{
   position: relative;
   overflow: hidden;
@@ -55,7 +62,6 @@
   min-height: 72vh;
   color:#fff;
 
-  /* blurred, full-bleed background */
   background:
     linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
     url("img/model-2000.jpeg?v=2");
@@ -63,7 +69,6 @@
   background-position: center;
 }
 
-/* sharp full image on top, scaled with no cropping */
 .hero::before{
   content: "";
   position: absolute;
@@ -71,19 +76,17 @@
   background:
     linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
     url("img/model-1600.jpeg?v=2");
-  background-size: contain;        /* show the whole image */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
 }
 
-/* make sure text/buttons sit above the overlay */
 .hero > *{
   position: relative;
   z-index: 1;
 }
 
-/* optional: mobile version using the 1600 image */
 @media (max-width: 768px){
   .hero{
     padding:6rem 0 4rem;
@@ -98,328 +101,248 @@
   }
 }
 
-    .hero-glass{
-      background:rgba(15,23,42,.78);
-      border-radius:1.5rem;
-      border:1px solid rgba(148,163,184,.4);
-      box-shadow:0 1.5rem 4rem rgba(15,23,42,.65);
-      padding:2rem 2.5rem;
-    }
-    @media (max-width: 575.98px){
-      .hero-glass{padding:1.5rem;}
-    }
+.hero-glass{
+  background:rgba(15,23,42,.78);
+  border-radius:1.5rem;
+  border:1px solid rgba(148,163,184,.4);
+  box-shadow:0 1.5rem 4rem rgba(15,23,42,.65);
+  padding:2rem 2.5rem;
+}
 
-    .badge-dot{
-      position:relative; padding-left:1rem;
-      background:rgba(15,23,42,.8)!important;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.7);
-    }
-    .badge-dot::before{
-      content:""; position:absolute; left:.5rem; top:50%; width:.5rem; height:.5rem;
-      border-radius:50%; background:var(--brand); transform:translateY(-50%);
-      box-shadow:0 0 0 .18rem rgba(10,108,255,.45);
-    }
-    .hero h1{color:#fff;}
-    .hero p.lead{color:#e2e8f0;}
+/* BADGES */
+.badge-dot{
+  position:relative; padding-left:1rem;
+  background:rgba(15,23,42,.8)!important;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.7);
+}
+.badge-dot::before{
+  content:""; position:absolute; left:.5rem; top:50%; width:.5rem; height:.5rem;
+  border-radius:50%; background:var(--brand); transform:translateY(-50%);
+  box-shadow:0 0 0 .18rem rgba(10,108,255,.45);
+}
 
-    .hero .btn-primary{
-      box-shadow:0 .75rem 1.75rem rgba(37,99,235,.45);
-    }
-    .hero .btn-outline-primary{
-      border-color:rgba(148,163,184,.8);
-      color:#e2e8f0;
-    }
+/* CARDS */
+.card-soft{
+  border:0;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  background:#ffffff;  /* clean white against warm background */
+}
 
-    /* Generic cards */
-    .card-soft{
-      border:0;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      background:#ffffff;
-    }
-    .lift{
-      transition:transform .25s cubic-bezier(.2,.6,.2,1), box-shadow .25s;
-    }
-    .lift:hover{
-      transform:translateY(-4px);
-      box-shadow:0 1.2rem 2.7rem rgba(15,23,42,.20);
-    }
+.lift{
+  transition:transform .25s cubic-bezier(.2,.6,.2,1), box-shadow .25s;
+}
+.lift:hover{
+  transform:translateY(-4px);
+  box-shadow:0 1.2rem 2.7rem rgba(15,23,42,.20);
+}
 
-    /* Sections */
-    .section-pad{padding:1.5rem 0;}
-    @media (max-width: 575.98px){.section-pad{padding:3.5rem 0;}}
+/* SECTIONS */
+.section-pad{padding:1.5rem 0;}
+@media (max-width: 575.98px){.section-pad{padding:3.5rem 0;}}
 
-    .section-heading{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      margin-bottom:1rem;
-    }
-    .section-heading span.icon-circle{
-      width:32px; height:32px; border-radius:999px;
-      display:inline-flex; align-items:center; justify-content:center;
-      background:rgba(37,99,235,.1);
-      color:var(--brand);
-    }
+/* Section heading styling */
+.section-heading{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin-bottom:1rem;
+}
+.section-heading span.icon-circle{
+  width:32px; height:32px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(37,99,235,.1);
+  color:var(--brand);
+}
 
-    /* Reveal on scroll */
-    .reveal{
-      opacity:0; transform:translateY(16px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-    .reveal.show{opacity:1; transform:none;}
+/* REVEAL ANIMATION */
+.reveal{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.show{opacity:1; transform:none;}
 
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion:reduce){
-      .reveal{transition:none}
-      .lift{transition:none}
-      html,body{scroll-behavior:auto}
-    }
+@media (prefers-reduced-motion:reduce){
+  .reveal{transition:none}
+  .lift{transition:none}
+  html,body{scroll-behavior:auto}
+}
 
-    /* Publications area */
-    .highlighted-pubs .pub-card{
-      border-radius:24px;
-      padding:1.25rem;
-      background:#ffffff;
-      border:1px solid rgba(148,163,184,.4);
-      box-shadow:var(--shadow);
-      margin-bottom:1.75rem;
-    }
-    .highlighted-pubs .pub-title a{
-      color: var(--brand-2);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .highlighted-pubs .pub-venue{
-      font-weight:600;
-      color:#047857;
-      margin-bottom:.35rem;
-    }
-    .highlighted-pubs .pub-summary{
-      color:#4b5563;
-    }
-/* Research highlight figures – no cropping, larger */
+/* PUBLICATIONS */
+.highlighted-pubs .pub-card{
+  border-radius:24px;
+  padding:1.25rem;
+  background:#ffffff;
+  border:1px solid rgba(148,163,184,.4);
+  box-shadow:var(--shadow);
+  margin-bottom:1.75rem;
+}
+
+.highlighted-pubs .pub-title a{
+  color: var(--brand-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.highlighted-pubs .pub-venue{
+  font-weight:600;
+  color:#047857;
+  margin-bottom:.35rem;
+}
+
+.highlighted-pubs .pub-summary{
+  color:#4b5563;
+}
+
+/* Large research figures */
 .pub-fig{
-  width: 100%;        /* fill the left column width */
-  height: auto;       /* let the image decide its height */
-  max-height: 320px;  /* cap so it doesn't get gigantic; tweak if you like */
-  object-fit: contain;/* show whole image, no cropping */
-
-  display: block;
-  background: #f9fafb;                       /* optional soft backdrop */
-  border-radius: 18px;
-  border: 1px solid rgba(148,163,184,.45);   /* optional border */
-  padding: 8px;                              /* small inner padding */
-}
-
-    .pub-gallery{
-      max-width: 1100px;       /* a bit wider row */
-      margin: 1.5rem auto 0;   /* some space above, centered */
-    }
-
-    .pub-img{
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;       /* fills its column */
-
-      display: block;
-      margin: 0 auto;
-
-      /* remove the “box” completely */
-      border-radius: 0;
-      box-shadow: none;
-      background: transparent;
-      padding: 0;
-    }
-
-    #pubList{
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      background:rgba(255,255,255,.9);
-    }
-    .pub-item{
-      background:transparent;
-      transition:background-color .2s ease, transform .2s ease, opacity .2s ease;
-    }
-    .pub-item:hover{
-      background-color:rgba(239,246,255,.9);
-      transform:translateY(-1px);
-    }
-    .pub-item.hide{
-      opacity:0; transform:translateY(6px); height:0; padding:0; margin:0; border:0; overflow:hidden;
-    }
-
-    /* Team images */
-    .lab-member-img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      border-top-left-radius:var(--radius);
-      border-top-right-radius:var(--radius);
-    }
-    @media (max-width:575.98px){
-      .lab-member-img{height:230px;}
-    }
-
-    /* Affiliation logos */
-    .affiliation-logo{
-      max-height: 90px;
-      width: auto;
-      height: auto;
-      filter:drop-shadow(0 .5rem 1.2rem rgba(15,23,42,.25));
-    }
-    .affiliation-logo-small{
-      max-height:70px;
-    }
-
-    /* Back to top */
-    #toTop{
-      position:fixed; right:1.25rem; bottom:1.25rem; z-index:1080; opacity:0; visibility:hidden;
-      transition:opacity .3s, visibility .3s, transform .3s; transform:translateY(6px)
-    }
-    #toTop.show{opacity:1; visibility:visible; transform:none}
-
-    footer{
-      background:rgba(255,255,255,.8);
-      backdrop-filter:blur(14px);
-    }
-
-    /* Top banner logo */
-.affiliation-logo-main{
-  max-width: 340px;   /* tweak as you like */
   width: 100%;
   height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display:block;
+  background:#f9fafb;
+  border-radius:18px;
+  border:1px solid rgba(148,163,184,.45);
+  padding:8px;
 }
 
-/* Bottom logos: a bit larger squares */
-.affiliation-logo-sub{
-  max-width: 150px;
-  width: 100%;
-  height: auto;
+.pub-gallery{max-width:1100px; margin:1.5rem auto 0;}
+
+.pub-img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+  margin:0 auto;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  padding:0;
 }
 
-/* Grants / funding logos */
+#pubList{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.9);
+}
+
+.pub-item{
+  background:transparent;
+  transition:background-color .2s ease, transform .2s ease, opacity .2s ease;
+}
+.pub-item:hover{
+  background-color:rgba(239,246,255,.9);
+  transform:translateY(-1px);
+}
+.pub-item.hide{
+  opacity:0; transform:translateY(6px); height:0; padding:0; margin:0; border:0; overflow:hidden;
+}
+
+/* TEAM */
+.lab-member-img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-top-left-radius:var(--radius);
+  border-top-right-radius:var(--radius);
+}
+@media(max-width:575.98px){
+  .lab-member-img{height:230px;}
+}
+
+/* AFFILIATION LOGOS */
+.affiliation-logo{max-height:90px; filter:drop-shadow(0 .5rem 1.2rem rgba(15,23,42,.25));}
+.affiliation-logo-small{max-height:70px;}
+
+.affiliation-logo-main{max-width:340px;}
+.affiliation-logo-sub{max-width:150px;}
+
+/* FUNDING */
 .grant-card{
   background:#ffffff;
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:0.75rem 1.25rem;
+  padding:.75rem 1.25rem;
   text-align:center;
 }
 
 .grant-logo{
-  max-width: 140px;   /* tweak this smaller or larger as you like */
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  max-width:140px;
+  width:100%;
+  height:auto;
+  object-fit:contain;
   display:block;
   margin:0 auto;
 }
 
-/* Journal covers – equal visual size */
+/* JOURNAL COVERS */
 .journal-logo-box{
-  width: 300px;          /* same box width for all */
-  height: 300px;         /* same box height for all */
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width:300px;
+  height:300px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
 .journal-logo{
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;   /* no cropping */
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+@media(max-width:768px){
+  .journal-logo-box{width:180px;height:180px;}
 }
 
-/* Optional: shrink the boxes a bit on small screens */
-@media (max-width: 768px){
-  .journal-logo-box{
-    width: 180px;
-    height: 180px;
-  }
+/* NEWS */
+.news-side-img{
+  max-width:260px;
+  width:100%;
+  height:auto;
+  border-radius:12px;
+}
+.news-side-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.25rem;
 }
 
-
-
-/* Right-side news image */
-.news-side-img {
-  max-width: 260px;   /* adjust to taste */
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Card that holds the image: keep it compact & centered */
-.news-side-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-}
-
-/* Back to top button – rectangle instead of circle */
+/* BUTTON: Back to top */
 #toTop.back-to-top{
-  border-radius: 0;      /* small rounded corners, or 0 for sharp */
-  width: auto;               /* let content define width */
-  height: auto;
-  padding-inline: 1.25rem;   /* make it a pill/rectangle */
-  padding-block: .6rem;
+  border-radius:0;
+  width:auto;
+  height:auto;
+  padding-inline:1.25rem;
+  padding-block:.6rem;
 }
 
-/* Overview summary text – larger and readable */
+/* SUMMARY TEXT */
 .overview-text{
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #111827; /* dark ink for contrast */
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#111827;
+}
+@media(min-width:992px){
+  .overview-text{font-size:1.2rem;}
 }
 
-/* Slightly larger on big screens */
-@media (min-width: 992px){
-  .overview-text{
-    font-size: 1.2rem;
-  }
-}
-/* Make the gap below the Our Research summary smaller */
-#overview.section-pad{
-  padding-bottom: 1.5rem;   /* was 5rem */
-}
+#overview.section-pad{padding-bottom:1.5rem;}
+#research.section-pad{padding-top:1.5rem;}
 
-/* And bring the next section up a bit if needed */
-#research.section-pad{
-  padding-top: 1.5rem;      /* was 5rem */
-}
-
-/* Contact card layout */
-#contact .card {
-  text-align: left;
-}
-
-/* Make the form nicely stacked & full-width */
-#contact form .mb-3 {
-  margin-bottom: 1rem;
-}
-
+/* CONTACT */
+#contact .card{text-align:left;}
+#contact form .mb-3{margin-bottom:1rem;}
 #contact .form-control,
-#contact textarea {
-  width: 100%;
-}
+#contact textarea{width:100%;}
+#contact .form-label{font-size:.85rem;}
+#contact button[type="submit"]{min-width:150px;}
 
-/* Slightly smaller labels */
-#contact .form-label {
-  font-size: 0.85rem;
+footer{
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(14px);
 }
-
-/* Keep the Send button left-aligned */
-#contact button[type="submit"] {
-  min-width: 150px;
-}
-    
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -1054,6 +977,7 @@
 
 </body>
 </html>
+
 
 
 
