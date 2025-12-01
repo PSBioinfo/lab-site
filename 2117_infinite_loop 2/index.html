@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Divij Verma Lab • Research • People • Publications • Mission • Contact</title>
+  <title>Divij Verma Lab • Research • People • Publications • Contact</title>
   <meta name="description" content="The Divij Verma Lab explores neural signaling and molecular mechanisms using wet- and dry-lab approaches.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" rel="stylesheet">
@@ -53,24 +53,53 @@
   overflow: hidden;
   padding: 7rem 0 5rem;
   min-height: 72vh;
+  color:#fff;
+
+  /* blurred, full-bleed background */
   background:
-    /* lighter overlay so the image shows through more */
-    linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
-    url("img/landscape32.jpeg");
+    linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
+    url("img/model-2000.jpeg?v=2");
   background-size: cover;
   background-position: center;
-  color:#fff;
 }
 
+/* sharp full image on top, scaled with no cropping */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
+    url("img/model-1600.jpeg?v=2");
+  background-size: contain;        /* show the whole image */
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+
+/* make sure text/buttons sit above the overlay */
+.hero > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* optional: mobile version using the 1600 image */
 @media (max-width: 768px){
   .hero{
     padding:6rem 0 4rem;
     background-image:
-      /* still a bit darker on mobile for text readability */
-      linear-gradient(135deg, rgba(9,9,11,.30), rgba(15,23,42,.25)),
-      url("img/landscape32,jpeg");
+      linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
+      url("img/hero-1600-portrait.jpeg?v=2");
+  }
+  .hero::before{
+    background-image:
+      linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
+      url("img/hero-1600-portrait.jpeg?v=2");
   }
 }
+
+
+
 
     .hero-glass{
       background:rgba(15,23,42,.78);
@@ -121,7 +150,7 @@
     }
 
     /* Sections */
-    .section-pad{padding:5rem 0;}
+    .section-pad{padding:1.5rem 0;}
     @media (max-width: 575.98px){.section-pad{padding:3.5rem 0;}}
 
     .section-heading{
@@ -349,6 +378,30 @@
   padding-inline: 1.25rem;   /* make it a pill/rectangle */
   padding-block: .6rem;
 }
+
+/* Overview summary text – larger and readable */
+.overview-text{
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #111827; /* dark ink for contrast */
+}
+
+/* Slightly larger on big screens */
+@media (min-width: 992px){
+  .overview-text{
+    font-size: 1.2rem;
+  }
+}
+/* Make the gap below the Our Research summary smaller */
+#overview.section-pad{
+  padding-bottom: 1.5rem;   /* was 5rem */
+}
+
+/* And bring the next section up a bit if needed */
+#research.section-pad{
+  padding-top: 1.5rem;      /* was 5rem */
+}
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -360,7 +413,7 @@
   <nav id="mainNav" class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#home">
-        <i class="fa-solid fa-flask me-2 text-primary"></i>Divij Verma Lab
+        <i class="fa-solid fa-flask me-2 text-primary"></i>The Divij Verma Lab
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
@@ -380,32 +433,36 @@
 
 <!-- HERO -->
 <header id="home" class="hero">
-  <div class="container content">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-lg-10 col-xl-9">
-        <h1 class="display-5 fw-bold mb-3">
-          The Verma Laboratory
-        </h1>
-        <p class="lead mb-4">
-          The Divij Verma Laboratory at the Department of Pathology in Albert Einstein College of Medicine investigates how
-          environmental exposures and chronic inflammation disrupt stem-cell biology to drive blood and solid-tumor malignancies.
-          Our research bridges stem cell biology, cancer genomics, and translational therapeutics, focusing on mechanisms through
-          which genotoxic and inflammatory stress promote clonal hematopoiesis (CH), myeloid neoplasms, and prostate cancer.
-          The Divij Verma Lab maps early disease steps in hematologic and prostate cancers. We combine wet- and dry-lab approaches
-          to understand clonal evolution and uncover targets for prevention and therapy.
-        </p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#contact" class="btn btn-primary btn-lg">
-            <i class="fa-solid fa-envelope me-2"></i>Contact us
-          </a>
-          <a href="#research" class="btn btn-outline-primary btn-lg">
-            Explore research
-          </a>
+
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<!-- LAB SUMMARY UNDER HERO -->
+<section id="overview" class="section-pad">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        <p class="overview-text mb-0">
+          The Divij Verma Laboratory at the Department of Pathology in Albert Einstein
+          College of Medicine investigates how environmental exposures and chronic
+          inflammation disrupt stem-cell biology to drive blood and solid-tumor
+          malignancies. Our research bridges stem cell biology, cancer genomics, and
+          translational therapeutics, focusing on mechanisms through which genotoxic
+          and inflammatory stress promote clonal hematopoiesis (CH), myeloid
+          neoplasms, and prostate cancer. The Divij Verma Lab maps early disease
+          steps in hematologic and prostate cancers. We combine wet- and dry-lab
+          approaches to understand clonal evolution and uncover targets for
+          prevention and therapy.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 
 
   <!-- RESEARCH -->
@@ -917,9 +974,10 @@
     </div>
   </footer>
 
-<button id="toTop" class="btn btn-primary btn-lg back-to-top" type="button" aria-label="Back to top">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+  <button id="toTop" class="btn btn-primary btn-lg back-to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -996,6 +1054,7 @@
 
 </body>
 </html>
+
 
 
 
