@@ -12,25 +12,67 @@
     :root{
       --brand:#0a6cff;
       --brand-2:#7c4dff;
-      --surface:#f5f6fb;
+      --surface:#ffffff;
       --ink:#22242f;
       --muted:#98a2b3;
       --radius:1.25rem;
       --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
+      --heading-blue:#1E3F66;
     }
+
+    html,body{
+      scroll-behavior:smooth;
+    }
+
     body{
       color:var(--ink);
-      background: radial-gradient(circle at top left,#e0ebff 0,#f5f6fb 40%,#f9fafb 100%);
+      background-color:#fffbf7;   /* same as main page */
     }
+
+    .bg-body-tertiary{
+      background-color:#fffbf7 !important;
+    }
+
+    /* Navbar – match main site */
+    .navbar{
+      backdrop-filter:saturate(1.4) blur(16px);
+      background:rgba(255,251,247,0.85);
+      box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
+    }
+    .navbar-brand{
+      font-weight:700;
+      letter-spacing:.02em;
+      color:var(--heading-blue);
+    }
+    .navbar-brand:hover{
+      color:var(--heading-blue);
+    }
+    .navbar-nav .nav-link{
+      font-weight:500;
+      padding-inline:.9rem;
+      color:var(--heading-blue);
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus{
+      color:var(--brand-2);
+    }
+
+    /* Headings */
+    h1,h2,h3,h4,h5,h6{
+      color:var(--heading-blue);
+    }
+
     .card-soft{
       border:0;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       background:#ffffff;
     }
+
     .bio-header{
-      padding:4rem 0 2rem;
+      padding:4.5rem 0 3rem;  /* space for sticky nav */
     }
+
     .lab-member-img{
       width:100%;
       max-width:260px;
@@ -39,6 +81,7 @@
       object-fit:cover;
       box-shadow:var(--shadow);
     }
+
     a.back-link{
       text-decoration:none;
       color:var(--brand);
@@ -51,10 +94,14 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html#home">
-        <i class="fa-solid fa-flask me-2 text-primary"></i>Divij Verma Lab
+      <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+        <img src="img/lablogo.png"
+             alt="Verma Lab Logo"
+             style="height:36px; width:auto; margin-right:10px;">
+        <span class="fw-bold">The Verma Lab</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
         <span class="navbar-toggler-icon"></span>
@@ -62,14 +109,24 @@
       <div id="navLinks" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="index.html#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#people">Lab</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#people">Team Members</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#publications">Publications</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <!-- Twitter / X icon -->
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center"
+               href="https://twitter.com/YOUR_HANDLE"
+               target="_blank" rel="noopener"
+               style="font-size:1.2rem;">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- MAIN -->
   <main class="bio-header">
     <div class="container">
       <a href="index.html#people" class="back-link mb-3 d-inline-block">
@@ -84,11 +141,13 @@
           <h1 class="h3 fw-bold mb-1">Plabani Sahu, M.S.</h1>
           <p class="text-muted mb-3">Visiting Scientist</p>
           <p>
-            Plabani is a computational biologist with a master’s degree in bioinformatics. She currently works in the Verma Lab, where she prepares manuscript-ready figures, analyzes bulk and single-cell datasets, and collaborates closely with the group to bridge wet-lab and dry-lab efforts. 
-            She aims to understand how toxic environmental exposures and inflammation-related changes in blood and immune cells contribute to the onset and progression of hematologic diseases. 
-            Outside of research, she enjoys hobbies like pottery, cooking, reading books, and playing various musical instruments which provides a calming balance to her analytical work.
+            Plabani is a computational biologist with a master’s degree in bioinformatics. She currently works in the Verma Lab, where she prepares manuscript-ready figures, analyzes bulk and single-cell datasets, and collaborates closely with the group to bridge wet-lab and dry-lab efforts.
+            She aims to understand how toxic environmental exposures and inflammation-related changes in blood and immune cells contribute to the onset and progression of hematologic diseases.
+            Outside of research, she enjoys hobbies like pottery, cooking, reading books, and playing various musical instruments, which provide a calming balance to her analytical work.
+          </p>
         </div>
       </div>
+
       <div class="row mt-4 g-4">
         <div class="col-lg-8">
           <div class="card card-soft p-4">
