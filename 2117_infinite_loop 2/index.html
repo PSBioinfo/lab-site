@@ -10,38 +10,53 @@
 
   <style>
     :root{
-  --brand:#0a6cff;
-  --brand-2:#7c4dff;
-  --surface:#ffffff;
-  --ink:#22242f;
-  --muted:#98a2b3;
-  --radius:1.25rem;
-  --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
-}
-
-/* Smooth scrolling */
-html,body{scroll-behavior:smooth}
-
-/* GLOBAL BACKGROUND — matches Verma Lab logo */
-body{
-  color:var(--ink);
-  background-color:#f5f1eb !important;   /* main new background */
-}
-
-/* Top progress bar */
-#scrollbar{
-  position:fixed; inset:0 0 auto 0; height:4px; z-index:1080;
-  background:linear-gradient(90deg,var(--brand),var(--brand-2));
-  transform-origin:0 50%; transform:scaleX(0);
-}
-
-/* NAVBAR — now blends with new warm background */
-.navbar{
-  backdrop-filter:saturate(1.4) blur(16px);
-  background:rgba(245,241,235,0.85); /* warm background w/ translucency */
-  box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
-}
-
+      --brand:#0a6cff;
+      --brand-2:#7c4dff;
+      --surface:#ffffff;
+      --ink:#22242f;
+      --muted:#98a2b3;
+      --radius:1.25rem;
+      --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
+  
+      /* Verma Lab heading color */
+      --heading-blue:#1E3F66;
+    }
+  
+    /* Smooth scrolling */
+    html,body{
+      scroll-behavior:smooth;
+    }
+  
+    /* GLOBAL BACKGROUND */
+    body{
+      color:var(--ink);
+      background-color:#fffbf7 !important;   /* main new background */
+    }
+  
+    /* Make “grey” sections match the same cream */
+    .bg-body-tertiary{
+      background-color:#fffbf7 !important;
+    }
+  
+    /* Global heading + nav color */
+    h1, h2, h3, h4, h5, h6,
+    .section-heading h2,
+    .section-heading h3,
+    .card h5,
+    .card h6,
+    .pub-title,
+    .navbar-brand span,
+    .navbar-nav .nav-link {
+      color: var(--heading-blue) !important;
+    }
+  
+    /* Navbar background tinted to match cream */
+    .navbar{
+      backdrop-filter:saturate(1.4) blur(16px);
+      background:rgba(255,251,247,0.85); /* matches #fffbf7 */
+      box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
+    }
+  
 .navbar-brand{
   font-weight:700;
   letter-spacing:.02em;
@@ -343,6 +358,12 @@ footer{
   background:rgba(255,255,255,.8);
   backdrop-filter:blur(14px);
 }
+
+/* Teal headings just for the research cards */
+.highlighted-pubs .pub-title{
+  color: #35B5AC !important;
+}
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
@@ -435,9 +456,9 @@ footer{
 <!-- Research overview row (image left, summary right) -->
 <div class="row align-items-center g-4 mt-3">
   <div class="col-lg-5">
-    <img src="img/diseases.jpeg"
-         alt="Environmental exposures and disease"
-         class="img-fluid rounded shadow-sm research-overview-img">
+    <img src="img/envr.png"
+     alt="Environmental exposures and disease"
+     class="img-fluid research-overview-img">
   </div>
   <div class="col-lg-7">
     <p class="mb-0">
@@ -465,7 +486,7 @@ footer{
             </div>
             <div class="col-lg-8 col-xl-9">
               <h4 class="h5 pub-title mb-2">
-                  Environmental Stress and Hematopoietic Stem-Cell (HSCs) Dysfunction
+                  Toxic Environmental Exposures Shape Stem Cell Dysfunction and Drive Cancer Evolution
               </h4>
               <p class="pub-summary mb-0">
                 We study how environmental particulate matter (PM), burn-pit chemicals, and polycyclic aromatic hydrocarbons (PAHs) induce DNA damage, proteostasis imbalance, and inflammatory stress in HSCs and the bone marrow microenvironment (BMM). Using murine and humanized models, we investigate how these pathways impair HSC self-renewal, accelerate stem-cell aging, and promote CH. Additionally, our work examines how chronic inflammatory signaling intersects with DNA-damage responses to drive maladaptive stem-cell programs.
@@ -484,7 +505,7 @@ footer{
                   </div>
                   <div class="col-lg-8 col-xl-9">
                     <h4 class="h5 pub-title mb-2">
-                        Therapeutic interception of environmentally driven malignancies
+                        Therapeutic Interception of Environmentally Driven Cancers
                     </h4>
                     <p class="pub-summary mb-0">
                       We aim to identify molecular vulnerabilities that can be targeted to reverse environmental and inflammatory stem-cell injury and evolution to malignant hematological cancers. Through collaborations with clinical teams, we connect mechanistic discoveries to patient cohorts, including World Trade Center–exposed firefighters and U.S. veterans, to translate our findings into human disease contexts. 
@@ -977,7 +998,6 @@ footer{
 
 </body>
 </html>
-
 
 
 
