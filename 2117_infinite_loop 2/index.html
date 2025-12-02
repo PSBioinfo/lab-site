@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Divij Verma Lab • Research • People • Publications • Contact</title>
-  <meta name="description" content="The Divij Verma Lab investigates how environmental exposures and chronic inflammation disrupt stem-cell biology to drive blood and solid-tumor malignancies.">
+  <meta name="description" content="The Divij Verma Lab explores neural signaling and molecular mechanisms using wet- and dry-lab approaches.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" rel="stylesheet">
 
@@ -17,40 +17,27 @@
       --muted:#98a2b3;
       --radius:1.25rem;
       --shadow:0 1rem 2.5rem rgba(15,23,42,.18), 0 .5rem 1rem rgba(15,23,42,.12);
-
+  
       /* Verma Lab heading color */
       --heading-blue:#1E3F66;
     }
-
+  
     /* Smooth scrolling */
     html,body{
       scroll-behavior:smooth;
     }
-
+  
     /* GLOBAL BACKGROUND */
     body{
       color:var(--ink);
       background-color:#fffbf7 !important;   /* main new background */
     }
-
-    /* Scroll progress bar */
-    #scrollbar{
-      position:fixed;
-      top:0;
-      left:0;
-      height:3px;
-      width:100%;
-      transform-origin:left;
-      transform:scaleX(0);
-      background:linear-gradient(90deg,#0a6cff,#7c4dff);
-      z-index:2000;
-    }
-
+  
     /* Make “grey” sections match the same cream */
     .bg-body-tertiary{
       background-color:#fffbf7 !important;
     }
-
+  
     /* Global heading + nav color */
     h1, h2, h3, h4, h5, h6,
     .section-heading h2,
@@ -62,178 +49,966 @@
     .navbar-nav .nav-link {
       color: var(--heading-blue) !important;
     }
-
+  
     /* Navbar background tinted to match cream */
     .navbar{
       backdrop-filter:saturate(1.4) blur(16px);
       background:rgba(255,251,247,0.85); /* matches #fffbf7 */
       box-shadow:0 .25rem .75rem rgba(15,23,42,.08);
     }
+  
+.navbar-brand{
+  font-weight:700;
+  letter-spacing:.02em;
+}
 
-    .navbar-brand{
-      font-weight:700;
-      letter-spacing:.02em;
-    }
+.navbar-nav .nav-link{
+  font-weight:500;
+  padding-inline:.9rem;
+}
 
-    .navbar-nav .nav-link{
-      font-weight:500;
-      padding-inline:.9rem;
-    }
+/* HERO (unchanged — still dark & dramatic)
+   If you want a light hero to match background, I can generate that too.
+*/
+.hero{
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0 5rem;
+  min-height: 72vh;
+  color:#fff;
 
-    /* HERO */
-    .hero{
-      position: relative;
-      overflow: hidden;
-      padding: 7rem 0 5rem;
-      min-height: 72vh;
-      color:#fff;
-      background:
-        linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
-        url("img/model-2000.jpeg?v=2");
-      background-size: cover;
-      background-position: center;
-    }
+  background:
+    linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
+    url("img/model-2000.jpeg?v=2");
+  background-size: cover;
+  background-position: center;
+}
 
-    .hero::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
-        url("img/model-1600.jpeg?v=2");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: 0;
-    }
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
+    url("img/model-1600.jpeg?v=2");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
 
-    .hero > *{
-      position: relative;
-      z-index: 1;
-    }
+.hero > *{
+  position: relative;
+  z-index: 1;
+}
 
-    @media (max-width: 768px){
-      .hero{
-        padding:6rem 0 4rem;
-        background-image:
-          linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
-          url("img/model-1600.jpeg?v=2");
-      }
-      .hero::before{
-        background-image:
-          linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
-          url("img/model-1600.jpeg?v=2");
-      }
-    }
+@media (max-width: 768px){
+  .hero{
+    padding:6rem 0 4rem;
+    background-image:
+      linear-gradient(135deg, rgba(9,9,11,.55), rgba(15,23,42,.6)),
+      url("img/model-1600.jpeg?v=2");
+  }
+  .hero::before{
+    background-image:
+      linear-gradient(135deg, rgba(9,9,11,.20), rgba(15,23,42,.18)),
+      url("img/model-1600.jpeg?v=2");
+  }
+}
 
-    .hero-glass{
-      background:rgba(15,23,42,.78);
-      border-radius:1.5rem;
-      border:1px solid rgba(148,163,184,.4);
-      box-shadow:0 1.5rem 4rem rgba(15,23,42,.65);
-      padding:2rem 2.5rem;
-    }
+.hero-glass{
+  background:rgba(15,23,42,.78);
+  border-radius:1.5rem;
+  border:1px solid rgba(148,163,184,.4);
+  box-shadow:0 1.5rem 4rem rgba(15,23,42,.65);
+  padding:2rem 2.5rem;
+}
 
-    .badge-dot{
-      position:relative; padding-left:1rem;
-      background:rgba(15,23,42,.8)!important;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.7);
-    }
-    .badge-dot::before{
-      content:""; position:absolute; left:.5rem; top:50%; width:.5rem; height:.5rem;
-      border-radius:50%; background:var(--brand); transform:translateY(-50%);
-      box-shadow:0 0 0 .18rem rgba(10,108,255,.45);
-    }
+/* BADGES */
+.badge-dot{
+  position:relative; padding-left:1rem;
+  background:rgba(15,23,42,.8)!important;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.7);
+}
+.badge-dot::before{
+  content:""; position:absolute; left:.5rem; top:50%; width:.5rem; height:.5rem;
+  border-radius:50%; background:var(--brand); transform:translateY(-50%);
+  box-shadow:0 0 0 .18rem rgba(10,108,255,.45);
+}
 
-    /* CARDS */
-    .card-soft{
-      border:0;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      background:#ffffff;  /* clean white against warm background */
-    }
+/* CARDS */
+.card-soft{
+  border:0;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  background:#ffffff;  /* clean white against warm background */
+}
 
-    .lift{
-      transition:transform .25s cubic-bezier(.2,.6,.2,1), box-shadow .25s;
-    }
-    .lift:hover{
-      transform:translateY(-4px);
-      box-shadow:0 1.2rem 2.7rem rgba(15,23,42,.20);
-    }
+.lift{
+  transition:transform .25s cubic-bezier(.2,.6,.2,1), box-shadow .25s;
+}
+.lift:hover{
+  transform:translateY(-4px);
+  box-shadow:0 1.2rem 2.7rem rgba(15,23,42,.20);
+}
 
-    /* SECTIONS */
-    .section-pad{padding:1.5rem 0;}
-    @media (max-width: 575.98px){.section-pad{padding:3.5rem 0;}}
+/* SECTIONS */
+.section-pad{padding:1.5rem 0;}
+@media (max-width: 575.98px){.section-pad{padding:3.5rem 0;}}
 
-    /* Section heading styling */
-    .section-heading{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      margin-bottom:1rem;
-    }
-    .section-heading span.icon-circle{
-      width:32px; height:32px; border-radius:999px;
-      display:inline-flex; align-items:center; justify-content:center;
-      background:rgba(37,99,235,.1);
-      color:var(--brand);
-    }
+/* Section heading styling */
+.section-heading{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin-bottom:1rem;
+}
+.section-heading span.icon-circle{
+  width:32px; height:32px; border-radius:999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(37,99,235,.1);
+  color:var(--brand);
+}
 
-    /* REVEAL ANIMATION */
-    .reveal{
-      opacity:0; transform:translateY(16px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-    .reveal.show{opacity:1; transform:none;}
+/* REVEAL ANIMATION */
+.reveal{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.show{opacity:1; transform:none;}
 
-    @media (prefers-reduced-motion:reduce){
-      .reveal{transition:none}
-      .lift{transition:none}
-      html,body{scroll-behavior:auto}
-    }
+@media (prefers-reduced-motion:reduce){
+  .reveal{transition:none}
+  .lift{transition:none}
+  html,body{scroll-behavior:auto}
+}
 
-    /* PUBLICATIONS / RESEARCH CARDS */
-    .highlighted-pubs .pub-card{
-      border-radius:24px;
-      padding:1.25rem;
-      background:#ffffff;
-      border:1px solid rgba(148,163,184,.4);
-      box-shadow:var(--shadow);
-      margin-bottom:1.75rem;
-    }
+/* PUBLICATIONS */
+.highlighted-pubs .pub-card{
+  border-radius:24px;
+  padding:1.25rem;
+  background:#ffffff;
+  border:1px solid rgba(148,163,184,.4);
+  box-shadow:var(--shadow);
+  margin-bottom:1.75rem;
+}
 
-    .highlighted-pubs .pub-title{
-      color: #35B5AC !important;  /* teal headings just for these */
-    }
+.highlighted-pubs .pub-title a{
+  color: var(--brand-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-    .highlighted-pubs .pub-title a{
-      color: var(--brand-2);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+.highlighted-pubs .pub-venue{
+  font-weight:600;
+  color:#047857;
+  margin-bottom:.35rem;
+}
 
-    .highlighted-pubs .pub-venue{
-      font-weight:600;
-      color:#047857;
-      margin-bottom:.35rem;
-    }
+.highlighted-pubs .pub-summary{
+  color:#4b5563;
+}
 
-    .highlighted-pubs .pub-summary{
-      color:#4b5563;
-    }
+/* Large research figures */
+.pub-fig{
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display:block;
+  background:transparent;   /* no grey box */
+  border-radius:0;          /* no rounded frame */
+  border:none;              /* no border */
+  padding:0;                /* no inner margin */
+}
 
-    /* Large research figures */
-    .pub-fig{
-      width: 100%;
-      height: auto;
-      max-height: 320px;
-      object-fit: contain;
-      display:block;
-      background:transparent;   /* no grey box */
-      border-radius:0;          /* no rounded frame */
-      border:none;              /* no border */
-      padding:0;                /* no in*
+
+.pub-gallery{max-width:1100px; margin:1.5rem auto 0;}
+
+.pub-img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+  margin:0 auto;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  padding:0;
+}
+
+#pubList{
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.9);
+}
+
+.pub-item{
+  background:transparent;
+  transition:background-color .2s ease, transform .2s ease, opacity .2s ease;
+}
+.pub-item:hover{
+  background-color:rgba(239,246,255,.9);
+  transform:translateY(-1px);
+}
+.pub-item.hide{
+  opacity:0; transform:translateY(6px); height:0; padding:0; margin:0; border:0; overflow:hidden;
+}
+
+/* TEAM */
+.lab-member-img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-top-left-radius:var(--radius);
+  border-top-right-radius:var(--radius);
+}
+@media(max-width:575.98px){
+  .lab-member-img{height:230px;}
+}
+
+/* AFFILIATION LOGOS */
+.affiliation-logo{max-height:90px; filter:drop-shadow(0 .5rem 1.2rem rgba(15,23,42,.25));}
+.affiliation-logo-small{max-height:70px;}
+
+.affiliation-logo-main{max-width:340px;}
+.affiliation-logo-sub{max-width:150px;}
+
+/* FUNDING */
+.grant-card{
+  background:#ffffff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:.75rem 1.25rem;
+  text-align:center;
+}
+
+.grant-logo{
+  max-width:140px;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
+}
+
+/* JOURNAL COVERS */
+.journal-logo-box{
+  width:300px;
+  height:300px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.journal-logo{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+@media(max-width:768px){
+  .journal-logo-box{width:180px;height:180px;}
+}
+
+/* NEWS */
+.news-side-img{
+  max-width:260px;
+  width:100%;
+  height:auto;
+  border-radius:12px;
+}
+.news-side-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.25rem;
+}
+
+/* BUTTON: Back to top */
+#toTop.back-to-top{
+  border-radius:0;
+  width:auto;
+  height:auto;
+  padding-inline:1.25rem;
+  padding-block:.6rem;
+}
+
+/* SUMMARY TEXT */
+.overview-text{
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#111827;
+}
+@media(min-width:992px){
+  .overview-text{font-size:1.2rem;}
+}
+
+#overview.section-pad{padding-bottom:1.5rem;}
+#research.section-pad{padding-top:1.5rem;}
+
+/* CONTACT */
+#contact .card{text-align:left;}
+#contact form .mb-3{margin-bottom:1rem;}
+#contact .form-control,
+#contact textarea{width:100%;}
+#contact .form-label{font-size:.85rem;}
+#contact button[type="submit"]{min-width:150px;}
+
+footer{
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(14px);
+}
+
+/* Teal headings just for the research cards */
+.highlighted-pubs .pub-title{
+  color: #35B5AC !important;
+}
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+
+  <!-- Scroll progress -->
+  <div id="scrollbar"></div>
+
+  <!-- NAV -->
+  <nav id="mainNav" class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+  <img src="img/lablogo.png" alt="Verma Lab Logo" 
+       style="height:36px; width:auto; margin-right:10px;">
+  <span class="fw-bold">The Verma Lab</span>
+    </a>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navLinks" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#people">Team Members</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center"
+               href="https://twitter.com/Divijv"
+               target="_blank" rel="noopener"
+               style="font-size:1.2rem;">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- HERO -->
+<header id="home" class="hero">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- LAB SUMMARY UNDER HERO -->
+<section id="overview" class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center align-items-center g-4">
+
+      <!-- LOGO COLUMN -->
+      <div class="col-md-3 text-center">
+        <img src="img/lablogo.png"
+             alt="The Verma Lab Logo"
+             style="max-width: 100%; height: auto;">
+      </div>
+
+      <!-- TEXT COLUMN -->
+      <div class="col-md-9">
+        <p class="overview-text mb-0">
+          The Divij Verma Laboratory at the Department of Pathology in Albert Einstein
+          College of Medicine investigates how environmental exposures and chronic
+          inflammation disrupt stem-cell biology to drive blood and solid-tumor
+          malignancies. Our research bridges stem cell biology, cancer genomics, and
+          translational therapeutics, focusing on mechanisms through which genotoxic
+          and inflammatory stress promote clonal hematopoiesis (CH), myeloid
+          neoplasms, and prostate cancer. The Verma Lab maps early disease
+          steps in hematologic and prostate cancers. We combine wet- and dry-lab
+          approaches to understand clonal evolution and uncover targets for
+          prevention and therapy.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- RESEARCH -->
+  <section id="research" class="section-pad">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="icon-circle"><i class="fa-solid fa-diagram-project"></i></span>
+        <div>
+          <h2 class="fw-bold mb-0">Our Research</h2>
+          <p class="text-muted mb-0 small"></p>
+        </div>
+      </div>
+
+<!-- Research overview row (image left, summary right) -->
+<div class="row align-items-center g-4 mt-3">
+  <div class="col-lg-5">
+    <img src="img/envr.png"
+     alt="Environmental exposures and disease"
+     class="img-fluid research-overview-img">
+  </div>
+  <div class="col-lg-7">
+    <p class="mb-0">
+      Environmental toxins—from airborne particulate matter and industrial pollutants to chemical contaminants—
+      affect nearly every organ system in the body. Research over the past decade has shown strong associations
+      between environmental exposures and a wide range of diseases, including lung injury and chronic respiratory
+      disorders, cardiovascular disease, neuroinflammatory and neurodegenerative conditions, immune dysregulation,
+      endocrine and thyroid dysfunction, reproductive and developmental abnormalities, and multiple cancers such
+      as those of the hematopoietic system and prostate. These exposures trigger inflammation, oxidative stress,
+      DNA damage, and metabolic disruption, creating a biologic environment that promotes tissue dysfunction and
+      disease susceptibility. Our lab is dedicated to uncovering the mechanisms linking toxic exposures to human
+      disease and developing strategies to reduce their impact on vulnerable populations.
+    </p>
+  </div>
+</div>
+      <div class="highlighted-pubs mt-3">
+
+        <!-- Card 1 -->
+        <div class="pub-card reveal">
+          <div class="row align-items-center g-3 g-lg-4">
+            <div class="col-lg-4 col-xl-3 mb-3 mb-lg-0">
+              <img src="img/stemcell.png"
+                   alt="Environmental Stress and HSCs"
+                   class="pub-fig">
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <h4 class="h5 pub-title mb-2">
+                  Toxic Environmental Exposures Shape Stem Cell Dysfunction and Drive Cancer Evolution
+              </h4>
+              <p class="pub-summary mb-0">
+                We study how environmental particulate matter (PM), burn-pit chemicals, and polycyclic aromatic hydrocarbons (PAHs) induce DNA damage, proteostasis imbalance, and inflammatory stress in HSCs and the bone marrow microenvironment (BMM). Using murine and humanized models, we investigate how these pathways impair HSC self-renewal, accelerate stem-cell aging, and promote CH. Additionally, our work examines how chronic inflammatory signaling intersects with DNA-damage responses to drive maladaptive stem-cell programs.
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 2 -->
+        <div class="pub-card reveal">
+          <div class="row align-items-center g-3 g-lg-4">
+            <div class="col-lg-4 col-xl-3 mb-3 mb-lg-0">
+              <img src="img/anti.png"
+                   alt="Environmental exposures and disease"
+                   class="pub-fig">
+                  </div>
+                  <div class="col-lg-8 col-xl-9">
+                    <h4 class="h5 pub-title mb-2">
+                        Therapeutic Interception of Environmentally Driven Cancers
+                    </h4>
+                    <p class="pub-summary mb-0">
+                      We aim to identify molecular vulnerabilities that can be targeted to reverse environmental and inflammatory stem-cell injury and evolution to malignant hematological cancers. Through collaborations with clinical teams, we connect mechanistic discoveries to patient cohorts, including World Trade Center–exposed firefighters and U.S. veterans, to translate our findings into human disease contexts. 
+                    </p>
+          </div>
+        </div>
+      </div>
+      
+        <!-- Card 3 -->
+        <div class="pub-card reveal">
+          <div class="row align-items-center g-3 g-lg-4">
+            <div class="col-lg-4 col-xl-3 mb-3 mb-lg-0">
+              <img src="img/stress.png"
+                   alt="inflammation and metabolic stress"
+                   class="pub-fig">
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <h4 class="h5 pub-title mb-2">
+                 Inflammation and Metabolic Stress in Prostate Cancer
+              </h4>
+              <p class="pub-summary mb-0">
+                Extending our stem-cell and inflammation research to solid tumors, we study how chronic inflammatory signaling and metabolic dysregulation foster therapy resistance and tumor progression in prostate cancer. We are investigating common inflammatory drivers shared between hematologic and prostate malignancies. Our goal is to define how targeting chronic inflammation could reprogram the tumor microenvironment, enhance differentiation, and sensitize prostate cancer cells to therapy.
+              </p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+
+    </div>
+  </section>
+<!-- NEWS -->
+<section id="news" class="section-pad bg-body-tertiary">
+  <div class="container">
+    <!-- Heading OUTSIDE the box -->
+    <div class="section-heading mb-3">
+      <span class="icon-circle"><i class="fa-solid fa-newspaper"></i></span>
+      <div>
+        <h2 class="fw-bold mb-0">Recent News</h2>
+        <p class="text-muted mb-0 small">Recent highlights and media coverage</p>
+      </div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- LEFT: news links -->
+      <div class="col-lg-7 col-xl-7">
+        <div class="card card-soft lift p-4 reveal h-100">
+          <!-- (no heading here anymore) -->
+          <ul class="list-unstyled mb-0 small">
+            <li class="mb-2">
+              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
+              <a href="https://montefioreeinstein.org/news/2025/10/28/preventing-harmful-consequences-environmental-pollution-exposure"
+                 target="_blank" rel="noopener" class="text-decoration-none">
+                Montefiore Einstein: Preventing harmful consequences of environmental pollution exposure
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
+              <a href="https://ecancer.org/en/news/25794-ash-2024-study-finds-genetic-changes-elevated-leukaemia-risk-in-ground-zero-first-responders"
+                 target="_blank" rel="noopener" class="text-decoration-none">
+                ecancer: Genetic changes and elevated leukaemia risk in 9/11 first responders
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
+              <a href="https://aacrjournals.org/cdnews/news/1934/9-11-First-Responders-Have-Twofold-Increase-in"
+                 target="_blank" rel="noopener" class="text-decoration-none">
+                AACR Cancer Discovery News: 9/11 first responders have twofold increase in clonal hematopoiesis
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
+              <a href="https://www.bloodcancerstoday.com/post/world-trade-center-dust-tied-to-genetic-mutations-behind-blood-cancers"
+                 target="_blank" rel="noopener" class="text-decoration-none">
+                Blood Cancers Today: WTC dust tied to mutations behind blood cancers
+              </a>
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
+              <a href="https://montefioreeinstein.org/news/2024/09/24/glutamine-starvation-leads-clinical-responses-blood-cancers"
+                 target="_blank" rel="noopener" class="text-decoration-none">
+                Montefiore Einstein: Glutamine starvation leads to clinical responses in blood cancers
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: centered, smaller image -->
+      <div class="col-lg-5 col-xl-5 d-flex">
+        <div class="card card-soft lift reveal w-100 news-side-card">
+          <img
+            src="img/news.png"
+            alt="Oncology Times cover"
+            class="news-side-img"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section id="people" class="section-pad bg-body-tertiary">
+  <div class="container">
+    <div class="section-heading">
+      <span class="icon-circle"><i class="fa-solid fa-users"></i></span>
+      <div>
+        <h2 class="fw-bold mb-0">Our Team</h2>
+        <p class="text-muted mb-0 small">Scientists at the intersection of basic discovery and translational oncology.</p>
+      </div>
+    </div>
+
+    <!-- Hiring banner -->
+    <div class="bg-success text-white py-2">
+      <div class="container text-center">
+        <a href="#contact" class="text-white text-decoration-none fw-semibold text-uppercase">
+          We’re hiring!
+        </a>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <!-- PI -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card card-soft h-100 lift reveal">
+          <img src="img/dv.jpeg" class="lab-member-img" alt="Dr. Divij Verma">
+          <div class="p-3">
+            <h6 class="fw-semibold mb-1">Dr. Divij Verma, Ph.D.</h6>
+            <p class="text-muted small mb-2">Principal Investigator</p>
+
+            <!-- Link to NEW PAGE -->
+            <a href="divij.html" class="learn-more-link">
+              Click to learn more about me →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plabani -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card card-soft h-100 lift reveal">
+          <img src="img/bani Small.jpeg" class="lab-member-img" alt="Plabani Sahu">
+          <div class="p-3">
+            <h6 class="fw-semibold mb-1">Plabani Sahu, M.S.</h6>
+            <p class="text-muted small mb-2">Visiting Scientist</p>
+
+            <!-- Link to NEW PAGE -->
+            <a href="plabani.html" class="learn-more-link">
+              Click to learn more about me →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more lab members here -->
+    </div>
+  </div>
+</section>
+
+ <!-- PUBLICATIONS (compact on main page) -->
+<section id="publications" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <span class="icon-circle"><i class="fa-solid fa-book-open"></i></span>
+      <div>
+        <h2 class="fw-bold mb-0">Publications &amp; Grants</h2>
+        <p class="text-muted mb-0 small">
+        </p>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap align-items-center gap-3 mt-3">
+      <p class="text-muted mb-0">
+        For full citation details and filters by year, visit the Publications Archive.
+      </p>
+      <a href="publications-archive.html" class="btn btn-outline-primary">
+        View Publications Archive
+      </a>
+    </div>
+    
+ <!-- Journal covers / logos strip -->
+<div class="row g-3 justify-content-center mt-2">
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/911.png"
+           alt="Cancer Discovery"
+           class="journal-logo">
+    </div>
+  </div>
+
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/nature.png"
+           alt="Nature Cancer"
+           class="journal-logo">
+    </div>
+  </div>
+
+  <div class="col-auto text-center">
+    <div class="journal-logo-box">
+      <img src="img/blood.png"
+           alt="Blood"
+           class="journal-logo">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Grants / Funding logos -->
+<section class="section-pad pt-0">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      
+      <!-- LEFT: CDC + ASH -->
+      <div class="col-md-5 col-lg-4">
+        <div class="d-flex flex-column gap-4 h-100 align-items-center">
+          <div class="grant-card">
+            <img src="img/kidney.jpeg" alt="NIDDK / NIH" class="grant-logo">
+          </div>
+          <div class="grant-card">
+            <img src="img/award.jpeg" alt="ASH Fellow to Faculty Scholar Award" class="grant-logo">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Dresner, NIH, NIOSH -->
+      <div class="col-md-5 col-lg-4">
+        <div class="d-flex flex-column gap-4 h-100 align-items-center">
+          <div class="grant-card">
+            <img src="img/dresner.jpeg" alt="Dresner Foundation" class="grant-logo">
+          </div>
+          <div class="grant-card">
+            <img src="img/cdc.jpeg" alt="CDC" class="grant-logo">
+          </div>
+          <div class="grant-card">
+            <img src="img/niosh.jpeg" alt="NIOSH" class="grant-logo">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- MISSION 
+  <section id="mission" class="section-pad bg-body-tertiary">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="section-heading">
+            <span class="icon-circle"><i class="fa-solid fa-compass"></i></span>
+            <div>
+              <h2 class="fw-bold mb-0">Mission &amp; Values</h2>
+              <p class="text-muted mb-0 small">How we work together and why it matters.</p>
+            </div>
+          </div>
+
+          <p class="mt-3">
+            We seek mechanistic understanding of how neurons and molecules drive
+            brain function and dysfunction. We emphasize rigorous science, open
+            collaboration, and mentorship.
+          </p>
+
+          <div class="accordion reveal" id="valuesAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="v1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+                  Inclusivity &amp; Equity
+                </button>
+              </h2>
+              <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#valuesAcc">
+                <div class="accordion-body">We foster an inclusive environment where all voices thrive.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="v2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+                  Open Science &amp; Rigor
+                </button>
+              </h2>
+              <div id="c2" class="accordion-collapse collapse" data-bs-parent="#valuesAcc">
+                <div class="accordion-body">Reproducibility, data sharing, and careful validation guide our work.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="v3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">
+                  Mentorship &amp; Growth
+                </button>
+              </h2>
+              <div id="c3" class="accordion-collapse collapse" data-bs-parent="#valuesAcc">
+                <div class="accordion-body">We support diverse career goals with structured guidance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card card-soft p-4 reveal h-100">
+            <h6 class="text-uppercase text-secondary mb-3">At a glance</h6>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2">
+                <i class="fa-solid fa-flask me-2 text-primary"></i>
+                Wet-lab + Computational synergy
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-camera-retro me-2 text-primary"></i>
+                Advanced imaging pipelines
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>-->
+
+<!-- CONTACT + AFFILIATIONS -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+
+      <!-- CONTACT COLUMN -->
+      <div class="col-lg-6">
+        <div class="section-heading mb-2">
+          <span class="icon-circle"><i class="fa-solid fa-envelope-open-text"></i></span>
+          <div>
+            <h2 class="fw-bold mb-0">Contact</h2>
+            <p class="text-muted mb-0 small">We’d love to collaborate and hear from prospective trainees.</p>
+          </div>
+        </div>
+
+        <div class="card card-soft p-4 h-100">
+          <h5 class="fw-bold mb-3">Send us a message</h5>
+
+          <form name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field">
+
+            <input type="hidden" name="form-name" value="contact">
+
+            <div style="position:absolute; left:-9999px; opacity:0;">
+              <label>Don’t fill this out if you’re human:
+                <input name="bot-field">
+              </label>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Name</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Subject</label>
+              <input type="text" class="form-control" name="subject" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-muted">Message</label>
+              <textarea class="form-control" rows="4" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-1">
+              <i class="fa-solid fa-paper-plane me-1"></i> Send
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- AFFILIATIONS COLUMN -->
+      <div class="col-lg-6">
+        <div class="section-heading mb-2">
+          <span class="icon-circle"><i class="fa-solid fa-building-columns"></i></span>
+          <div>
+            <h2 class="fw-bold mb-0">Affiliations</h2>
+            <p class="text-muted mb-0 small">Institutions and partners we work with.</p>
+          </div>
+        </div>
+
+        <div class="card card-soft p-4 h-100">
+          <div class="text-center mb-4">
+            <img src="img/monte.jpeg" class="affiliation-logo-main" alt="Montefiore Einstein Cancer Center">
+          </div>
+
+          <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <img src="img/elogo.jpeg" class="affiliation-logo-sub" alt="Einstein">
+            <img src="img/nyfd.jpeg" class="affiliation-logo-sub" alt="FDNY">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="border-top py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="small">&copy; <span id="year"></span> Divij Verma Lab</div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="btn btn-primary btn-lg back-to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll progress bar
+    const bar = document.getElementById('scrollbar');
+    const setProgress = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      bar.style.transform = `scaleX(${Math.max(0, Math.min(1, scrolled))})`;
+    };
+    document.addEventListener('scroll', setProgress, {passive:true});
+    window.addEventListener('resize', setProgress);
+    setProgress();
+
+    // Back to top button
+    const toTop = document.getElementById('toTop');
+    const toggleTop = () => {
+      (window.scrollY > 600) ? toTop.classList.add('show') : toTop.classList.remove('show');
+    };
+    document.addEventListener('scroll', toggleTop, {passive:true});
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(el => io.observe(el));
+
+  // Publications filter & search (works only on pages that have pubs)
+  const pubButtons = document.querySelectorAll('button[data-year]');
+  const pubItems   = Array.from(document.querySelectorAll('.pub-item'));
+  const pubSearch  = document.getElementById('pubSearch');
+  let activeYear   = 'all';
+
+  const applyPubFilters = () => {
+    // if no list, nothing to do
+    if (!pubItems.length) return;
+
+    const q = pubSearch ? (pubSearch.value || '').toLowerCase() : '';
+    pubItems.forEach(li => {
+      const yearOk = (activeYear === 'all') || (li.dataset.year === activeYear);
+      const textOk = li.textContent.toLowerCase().includes(q);
+      li.classList.toggle('hide', !(yearOk && textOk));
+    });
+  };
+
+  // Only attach listeners if controls exist on this page
+  if (pubButtons.length && pubItems.length) {
+    pubButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pubButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeYear = btn.dataset.year;
+        applyPubFilters();
+      });
+    });
+  }
+
+  if (pubSearch && pubItems.length) {
+    pubSearch.addEventListener('input', applyPubFilters);
+  }
+
+</script>
+
+
+</body>
+</html>
+
 
 
 
