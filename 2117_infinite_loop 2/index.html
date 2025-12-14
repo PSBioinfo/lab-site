@@ -478,6 +478,30 @@ footer{
 }
 
 
+/* GRANTS CAROUSEL (bigger, no box/shadow) */
+.grants-carousel .carousel-inner{
+  background: transparent;
+}
+
+.grants-carousel .carousel-item{
+  padding: .25rem 0;
+}
+
+.grants-carousel .grant-logo{
+  height: 95px;            /* ✅ bigger (try 85–110) */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Make carousel arrows visible on cream background */
+.grants-carousel .carousel-control-prev-icon,
+.grants-carousel .carousel-control-next-icon{
+  filter: invert(1) grayscale(1); /* turns them dark-ish */
+  opacity: .85;
+}
 
 
 
@@ -515,6 +539,14 @@ footer{
                target="_blank" rel="noopener"
                style="font-size:1.2rem;">
               <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center"
+               href="https://www.instagram.com/divijvermalab?igsh=MW5pY3ZmcGk1dGl1cQ==/"
+               target="_blank" rel="noopener"
+               style="font-size:1.2rem;">
+              <i class="fa-brands fa-instagram"></i>
             </a>
           </li>
           
@@ -742,7 +774,7 @@ footer{
     <div class="section-heading mb-3">
       <span class="icon-circle"><i class="fa-solid fa-camera-retro"></i></span>
       <div>
-        <h2 class="fw-bold mb-0">Lab Events</h2>
+        <h2 class="fw-bold mb-0">Lab Life</h2>
         <p class="text-muted mb-0 small">Highlights from recent lab events</p>
       </div>
     </div>
@@ -773,7 +805,7 @@ footer{
         </div>
 
         <div class="carousel-item">
-          <img src="img/ashgrp-1.jpg" alt="Lab event photo 2">
+          <img src="img/ashgrp-1.png" alt="Lab event photo 2">
           <div class="carousel-caption d-none d-md-block">
             <h5 class="mb-1">ASH Annual Conference 2025</h5>
           </div>
@@ -939,9 +971,6 @@ footer{
         <img src="img/cancerdisc.png"
              alt="Cancer Discovery cover"
              class="journal-cover">
-        <img src="img/911.png"
-             alt="Article figure thumbnail"
-             class="article-thumb">
       </div>
     </a>
   </div>
@@ -955,9 +984,6 @@ footer{
         <img src="img/ajh.jpg"
              alt="AJH cover"
              class="journal-cover">
-        <img src="img/graphabs.jpg"
-             alt="Article figure thumbnail"
-             class="article-thumb">
       </div>
     </a>
   </div>
@@ -978,6 +1004,19 @@ footer{
   <div class="col-auto text-center">
     <a class="journal-link"
        href="https://www.nature.com/articles/s41375-019-0674-7"
+       target="_blank" rel="noopener"
+       aria-label="Open Leukemia article">
+      <div class="journal-stack">
+        <img src="img/leuk.jpg"
+             alt="Leukemia cover"
+             class="journal-cover">
+      </div>
+    </a>
+  </div>
+
+  <div class="col-auto text-center">
+    <a class="journal-link"
+       href="https://www.nature.com/articles/s43018-024-00811-3"
        target="_blank" rel="noopener"
        aria-label="Open Nature Cancer article">
       <div class="journal-stack">
@@ -1000,7 +1039,7 @@ footer{
       </div>
     </a>
   </div>
-  
+
   <div class="col-auto text-center">
     <a class="journal-link"
        href="https://www.tandfonline.com/doi/full/10.1080/10428194.2025.2513675"
@@ -1013,46 +1052,58 @@ footer{
       </div>
     </a>
   </div>
+  
 </div>
 
-<!-- Grants / Funding logos -->
+<!-- Grants / Funding logos (one-by-one carousel) -->
 <section class="section-pad pt-0">
   <div class="container">
-    <div class="row g-4 justify-content-center align-items-stretch">
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="grant-card h-100">
+    <div id="grantsCarousel"
+     class="carousel slide grants-carousel mt-5"
+     data-bs-ride="carousel"
+     data-bs-interval="2500"
+     data-bs-pause="hover">
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
           <img src="img/kidney.jpeg" alt="NIDDK / NIH" class="grant-logo">
         </div>
-      </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="grant-card h-100">
+        <div class="carousel-item">
           <img src="img/award.jpeg" alt="ASH Fellow to Faculty Scholar Award" class="grant-logo">
         </div>
-      </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="grant-card h-100">
+        <div class="carousel-item">
           <img src="img/dresner.jpeg" alt="Dresner Foundation" class="grant-logo">
         </div>
-      </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="grant-card h-100">
+        <div class="carousel-item">
           <img src="img/cdc.jpeg" alt="CDC" class="grant-logo">
         </div>
-      </div>
 
-      <div class="col-6 col-md-4 col-lg-2">
-        <div class="grant-card h-100">
+        <div class="carousel-item">
           <img src="img/niosh.jpeg" alt="NIOSH" class="grant-logo">
         </div>
+
       </div>
 
+      <button class="carousel-control-prev" type="button" data-bs-target="#grantsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#grantsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
     </div>
+
   </div>
 </section>
+
 
 
   <!-- MISSION -->
@@ -1257,7 +1308,8 @@ footer{
 
 
 </body>
-  </html>
+</html>
+
 
 
 
