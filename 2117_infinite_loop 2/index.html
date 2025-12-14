@@ -222,6 +222,8 @@
   padding:0;
 }
 
+
+
 .pub-gallery{max-width:1100px; margin:1.5rem auto 0;}
 
 .pub-img{
@@ -273,41 +275,28 @@
 .affiliation-logo-main{max-width:340px;}
 .affiliation-logo-sub{max-width:150px;}
 
-/* FUNDING */
+/* FUNDING — no boxes, no shadows */
 .grant-card{
-  background:#ffffff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:.75rem 1.25rem;
-  text-align:center;
-}
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 
-.grant-logo{
-  max-width:140px;
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  display:block;
-  margin:0 auto;
-}
-
-/* JOURNAL COVERS */
-.journal-logo-box{
-  width:300px;
-  height:300px;
-  margin:0 auto;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-.journal-logo{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
+
+.grant-logo{
+  max-width: 180px;
+  width: 100%;
+  height: 70px;          /* keeps a clean uniform row */
+  object-fit: contain;
+  display:block;
+  margin:0 auto;
 }
-@media(max-width:768px){
-  .journal-logo-box{width:180px;height:180px;}
-}
+
 
 /* NEWS */
 .news-side-img{
@@ -376,6 +365,121 @@ footer{
   font-size: 1.875rem;   /* consistent across the site */
   line-height: 1.25;
 }
+
+/* LAB LIFE / EVENTS — consistent size for all slides */
+.events-carousel .carousel-inner{
+  aspect-ratio: 21 / 9;              /* same frame for every image */
+  background: #fffbf7;               /* match site background */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Captions */
+.events-carousel .carousel-caption{
+  background: rgba(255,251,247,.82);   /* cream translucent */
+  border: 1px solid rgba(148,163,184,.35);
+  border-radius: 14px;
+  padding: .7rem 1rem;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+/* Caption text color */
+.events-carousel .carousel-caption h5,
+.events-carousel .carousel-caption p{
+  color: #35B5AC !important;          /* ✅ requested hex */
+}
+
+.events-carousel .carousel-item{
+  height: 100%;
+  background: #fffbf7;
+}
+
+/* All images fill the same frame, but never crop */
+.events-carousel .carousel-item img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;     /* full image visible */
+  object-position: center center;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .events-carousel .carousel-inner{
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* --- JOURNAL LINK CARDS (prettier, no bootstrap-looking box) --- */
+
+/* container spacing still handled by Bootstrap row/col */
+.journal-link{
+  display:inline-block;
+  text-decoration:none;
+}
+
+/* the “card” is just the cover itself (no extra box behind) */
+.journal-stack{
+  position: relative;
+  width: 300px;
+  aspect-ratio: 1 / 1;          /* keeps consistent sizing */
+  border-radius: 26px;
+  overflow: visible;             /* allow thumb shadow to spill */
+  background: transparent;       /* ✅ removes the “box” look */
+  padding: 0;                    /* ✅ no inner padding */
+  transform: translateZ(0);
+}
+
+/* main journal cover */
+.journal-stack .journal-cover{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 26px;
+
+}
+
+/* Article thumbnail overlay — vertical rectangle, never spills/cuts */
+.journal-stack{
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+.journal-stack .article-thumb{
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+
+  width: 34%;
+  max-width: 140px;
+  aspect-ratio: 2 / 3;
+
+  object-fit: cover;            /* ✅ removes empty space */
+  object-position: center;
+
+  border-radius: 18px;
+  background: #fffbf7;
+  border: 2px solid rgba(255,255,255,.85);
+  box-shadow: 0 1.2rem 2.2rem rgba(15,23,42,.28);
+}
+
+
+@media(max-width:768px){
+  .journal-stack{ width: 200px; }
+  .journal-stack .article-thumb{
+    width: 50%;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 16px;
+  }
+}
+
+
+
+
 
   </style>
 </head>
@@ -485,7 +589,7 @@ footer{
   </div>
   <div class="col-lg-7">
     <p class="mb-0">
-      Environmental toxins, from airborne particulate matter and industrial pollutants to chemical contaminants,
+      Environmental toxins—from airborne particulate matter and industrial pollutants to chemical contaminants—
       affect nearly every organ system in the body. Research over the past decade has shown strong associations
       between environmental exposures and a wide range of diseases, including lung injury and chronic respiratory
       disorders, cardiovascular disease, neuroinflammatory and neurodegenerative conditions, immune dysregulation,
@@ -581,14 +685,6 @@ footer{
           <ul class="list-unstyled mb-0 small">
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
-              <a href="https://aacrjournals.org/cancerdiscovery/article-abstract/15/12/2406/767706/Lingering-Effects-Environmental-Exposure-Leads-to?redirectedFrom=fulltext"
-               target="_blank" rel="noopener" class="text-decoration-none">
-                AACR: Lingering Effects: Environmental Exposure Leads to Clonal Hematopoiesis via IL1RAP in 9/11 First Responders 
-              </a>
-          </li>
-
-            <li class="mb-2">
-              <i class="fa-solid fa-newspaper me-2 text-primary"></i>
               <a href="https://montefioreeinstein.org/news/2025/10/28/preventing-harmful-consequences-environmental-pollution-exposure"
                  target="_blank" rel="noopener" class="text-decoration-none">
                 Montefiore Einstein: Preventing harmful consequences of environmental pollution exposure
@@ -603,7 +699,7 @@ footer{
             </li>
             <li class="mb-2">
               <i class="fa-solid fa-newspaper me-2 text-primary"></i>
-              <a href="https://aacrjournals.org/cancerdiscovery/article-abstract/15/12/2406/767706/Lingering-Effects-Environmental-Exposure-Leads-to?redirectedFrom=fulltext"
+              <a href="https://aacrjournals.org/cdnews/news/1934/9-11-First-Responders-Have-Twofold-Increase-in"
                  target="_blank" rel="noopener" class="text-decoration-none">
                 AACR Cancer Discovery News: 9/11 first responders have twofold increase in clonal hematopoiesis
               </a>
@@ -639,6 +735,95 @@ footer{
     </div>
   </div>
 </section>
+
+<!-- LAB LIFE / EVENTS -->
+<section id="events" class="section-pad bg-body-tertiary">
+  <div class="container">
+    <div class="section-heading mb-3">
+      <span class="icon-circle"><i class="fa-solid fa-camera-retro"></i></span>
+      <div>
+        <h2 class="fw-bold mb-0">Lab Life</h2>
+        <p class="text-muted mb-0 small">Highlights from recent lab events</p>
+      </div>
+    </div>
+
+    <div id="labEventsCarousel"
+         class="carousel slide events-carousel reveal"
+         data-bs-ride="carousel"
+         data-bs-interval="3500">
+
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="4"></button>
+        <button type="button" data-bs-target="#labEventsCarousel" data-bs-slide-to="5"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="img/ashdvtalk.png" alt="Lab event photo 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">ASH Annual Conference 2025</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/ashgrp-1.png" alt="Lab event photo 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">ASH Annual Conference 2025</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/ashgrp-2.png" alt="Lab event photo 3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">ASH Annual Conference 2025</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/holiday25.png" alt="Lab event photo 4">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">Holiday Party 2025</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/holiday25-2.png" alt="Lab event photo 5">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">Holiday Party 2025</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/avdv.png" alt="Lab event photo 6">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="mb-1">Holiday Party 2025</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#labEventsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#labEventsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- PEOPLE -->
 <section id="people" class="section-pad bg-body-tertiary">
@@ -742,69 +927,121 @@ footer{
       </a>
     </div>
     
- <!-- Journal covers / logos strip -->
+ <!-- Journal covers + article thumbnails -->
 <div class="row g-3 justify-content-center mt-2">
+
   <div class="col-auto text-center">
-    <div class="journal-logo-box">
-      <img src="img/911.png"
-           alt="Cancer Discovery"
-           class="journal-logo">
-    </div>
-  </div>
-  
-  <div class="col-auto text-center">
-    <div class="journal-logo-box">
-      <img src="img/nature.png"
-           alt="Nature Cancer"
-           class="journal-logo">
-    </div>
+    <a class="journal-link"
+       href="https://aacrjournals.org/cancerdiscovery/article-abstract/15/12/2468/767712/Elevated-Clonal-Hematopoiesis-in-9-11-First?redirectedFrom=fulltext"
+       target="_blank" rel="noopener"
+       aria-label="Open Cancer Discovery article">
+      <div class="journal-stack">
+        <img src="img/cancerdisc.png"
+             alt="Cancer Discovery cover"
+             class="journal-cover">
+        <img src="img/911.png"
+             alt="Article figure thumbnail"
+             class="article-thumb">
+      </div>
+    </a>
   </div>
 
   <div class="col-auto text-center">
-    <div class="journal-logo-box">
-      <img src="img/blood.png"
-           alt="Blood"
-           class="journal-logo">
-    </div>
+    <a class="journal-link"
+       href="https://onlinelibrary.wiley.com/doi/10.1002/ajh.70132"
+       target="_blank" rel="noopener"
+       aria-label="Open AJH article">
+      <div class="journal-stack">
+        <img src="img/ajh.jpg"
+             alt="AJH cover"
+             class="journal-cover">
+        <img src="img/graphabs.jpg"
+             alt="Article figure thumbnail"
+             class="article-thumb">
+      </div>
+    </a>
   </div>
+
+  <div class="col-auto text-center">
+    <a class="journal-link"
+       href="https://ashpublications.org/blood/article-split/146/Supplement%201/323/549657/Ofirnoflast-a-novel-inflammasome-inhibitor-rewires"
+       target="_blank" rel="noopener"
+       aria-label="Open Blood article">
+      <div class="journal-stack">
+        <img src="img/blood-2.png"
+             alt="Blood cover"
+             class="journal-cover">
+      </div>
+    </a>
+  </div>
+
+  <div class="col-auto text-center">
+    <a class="journal-link"
+       href="https://www.nature.com/articles/s41375-019-0674-7"
+       target="_blank" rel="noopener"
+       aria-label="Open Nature Cancer article">
+      <div class="journal-stack">
+        <img src="img/nature.png"
+             alt="Nature Cancer cover"
+             class="journal-cover">
+      </div>
+    </a>
+  </div>
+
+  <div class="col-auto text-center">
+    <a class="journal-link"
+       href="https://ashpublications.org/blood/article/134/3/227/260725/Vitamin-K-antagonism-impairs-the-bone-marrow"
+       target="_blank" rel="noopener"
+       aria-label="Open Blood article">
+      <div class="journal-stack">
+        <img src="img/blood.png"
+             alt="Blood coverr"
+             class="journal-cover">
+      </div>
+    </a>
+  </div>
+  
 </div>
-</section>
 
 <!-- Grants / Funding logos -->
 <section class="section-pad pt-0">
   <div class="container">
-    <div class="row g-4 justify-content-center">
-      
-      <!-- LEFT: CDC + ASH -->
-      <div class="col-md-5 col-lg-4">
-        <div class="d-flex flex-column gap-4 h-100 align-items-center">
-          <div class="grant-card">
-            <img src="img/kidney.jpeg" alt="NIDDK / NIH" class="grant-logo">
-          </div>
-          <div class="grant-card">
-            <img src="img/award.jpeg" alt="ASH Fellow to Faculty Scholar Award" class="grant-logo">
-          </div>
+    <div class="row g-4 justify-content-center align-items-stretch">
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="grant-card h-100">
+          <img src="img/kidney.jpeg" alt="NIDDK / NIH" class="grant-logo">
         </div>
       </div>
 
-      <!-- RIGHT: Dresner, NIH, NIOSH -->
-      <div class="col-md-5 col-lg-4">
-        <div class="d-flex flex-column gap-4 h-100 align-items-center">
-          <div class="grant-card">
-            <img src="img/dresner.jpeg" alt="Dresner Foundation" class="grant-logo">
-          </div>
-          <div class="grant-card">
-            <img src="img/cdc.jpeg" alt="CDC" class="grant-logo">
-          </div>
-          <div class="grant-card">
-            <img src="img/niosh.jpeg" alt="NIOSH" class="grant-logo">
-          </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="grant-card h-100">
+          <img src="img/award.jpeg" alt="ASH Fellow to Faculty Scholar Award" class="grant-logo">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="grant-card h-100">
+          <img src="img/dresner.jpeg" alt="Dresner Foundation" class="grant-logo">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="grant-card h-100">
+          <img src="img/cdc.jpeg" alt="CDC" class="grant-logo">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="grant-card h-100">
+          <img src="img/niosh.jpeg" alt="NIOSH" class="grant-logo">
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
   <!-- MISSION -->
   <section id="mission" class="section-pad bg-body-tertiary">
@@ -1008,7 +1245,8 @@ footer{
 
 
 </body>
-</html>
+  </html>
+
 
 
 
